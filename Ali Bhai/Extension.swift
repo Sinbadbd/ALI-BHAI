@@ -6,4 +6,15 @@
 //  Copyright © 2019 sinbad. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UIImageView {
+    
+    convenience init(cornerRadius : CGFloat) {
+        self.init(frame: .zero)
+        self.layer.cornerRadius = cornerRadius
+        self.contentMode = .scaleAspectFill
+        self.clipsToBounds = true
+    }
+    
+}

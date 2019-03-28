@@ -8,23 +8,39 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
-
+class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
+    
+    let CELL_ID = "CELL_ID"
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+       
+        collectionView.backgroundColor = .white
+        setupSearchController()
+        collectionView.register(HomePageCell.self, forCellWithReuseIdentifier: CELL_ID)
+      
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupSearchController(){
+        definesPresentationContext = true
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 200)
+    }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 2
+    }
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath) as! HomePageCell
+        cell.backgroundColor = .red
+        return cell
+        
+    }
+    
+   
+    
 }
