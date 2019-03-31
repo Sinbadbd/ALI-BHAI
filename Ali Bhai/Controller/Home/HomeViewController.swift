@@ -44,17 +44,10 @@ class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var selected = product[indexPath.item]
-       // var rowId = selected.id
-        
+        let selected = product[indexPath.item]
         let detailsControler = ProductDetailsController()
-        
         detailsControler.productId = selected.id
-   //   detailsControler.pr
-        
         self.navigationController?.pushViewController(detailsControler, animated: true)
-        
-      //  print(rowId)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -50,7 +50,7 @@ class ApiClient {
     }
     
     class func getProdutsId (id : Int, completion: @escaping(Products?,Error?)->Void) {
-       //  print(ApiClient.EndPoints.getProductId(68).url)
+       //print(ApiClient.EndPoints.getProductId(id).url)
         let task = URLSession.shared.dataTask(with: ApiClient.EndPoints.getProductId(id).url) { (data, response, error) in
             if let error = error {
                 completion(nil, error)

@@ -42,8 +42,7 @@ class ProductDetailsController : UIViewController{
             self.product = response
             print(response?.id, response?.name)
             DispatchQueue.main.async {
-                self.titleLable.text = response?.name
-                
+                self.titleLable.text = response?.name 
             }
         }
      self.viewWillAppear(true)
