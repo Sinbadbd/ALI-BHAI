@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A104B5CD2250B5B200619550 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104B5CC2250B5B200619550 /* ApiClient.swift */; };
+		A104B5CF2250BA1B00619550 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104B5CE2250BA1B00619550 /* Products.swift */; };
 		A196F9A6224CA19300F09319 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196F9A5224CA19300F09319 /* AppDelegate.swift */; };
 		A196F9A8224CA19300F09319 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196F9A7224CA19300F09319 /* ViewController.swift */; };
 		A196F9AB224CA19300F09319 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A196F9A9224CA19300F09319 /* Main.storyboard */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A104B5CC2250B5B200619550 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		A104B5CE2250BA1B00619550 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		A196F9A2224CA19300F09319 /* Ali Bhai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ali Bhai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A196F9A5224CA19300F09319 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A196F9A7224CA19300F09319 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +55,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A104B5CA2250B57900619550 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A104B5CE2250BA1B00619550 /* Products.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A104B5CB2250B58900619550 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				A104B5CC2250B5B200619550 /* ApiClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
 		A196F999224CA19300F09319 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +90,8 @@
 		A196F9A4224CA19300F09319 /* Ali Bhai */ = {
 			isa = PBXGroup;
 			children = (
+				A104B5CB2250B58900619550 /* Client */,
+				A104B5CA2250B57900619550 /* Model */,
 				A196F9BB224CA61900F09319 /* Controller */,
 				A196F9A5224CA19300F09319 /* AppDelegate.swift */,
 				A196F9A7224CA19300F09319 /* ViewController.swift */,
@@ -175,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A104B5CD2250B5B200619550 /* ApiClient.swift in Sources */,
 				A196F9BD224CA63500F09319 /* HomeViewController.swift in Sources */,
 				A196F9C5224CCDCE00F09319 /* BaseListController.swift in Sources */,
 				A196F9A8224CA19300F09319 /* ViewController.swift in Sources */,
@@ -183,6 +206,7 @@
 				A196F9C1224CBC6A00F09319 /* FavoriteViewController.swift in Sources */,
 				A196F9B8224CA1E300F09319 /* BaseTabController.swift in Sources */,
 				A196F9C3224CBD2000F09319 /* MoreViewController.swift in Sources */,
+				A104B5CF2250BA1B00619550 /* Products.swift in Sources */,
 				A196F9BF224CBC4800F09319 /* CartViewController.swift in Sources */,
 				A196F9BA224CA37800F09319 /* Extension.swift in Sources */,
 			);
