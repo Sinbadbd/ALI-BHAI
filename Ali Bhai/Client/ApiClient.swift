@@ -16,11 +16,12 @@ class ApiClient {
         static let BASE = "https://devsloop.com/wp-json/wc/v3"
         static let apiKeyParam = key
         case getProducts
+        case getProductId(Int)
         
         var stringValue : String {
             switch self {
             case .getProducts: return EndPoints.BASE + "/products" + EndPoints.apiKeyParam
- 
+            case .getProductId (let id): return EndPoints.BASE + "/products/\(id)" +  EndPoints.apiKeyParam
             }
         }
         var url : URL{
@@ -29,7 +30,6 @@ class ApiClient {
     }
  
     class func getAllProducts (completion: @escaping([Products]?,Error?)->Void) {
-        print(ApiClient.EndPoints.getProducts.url)
         let task = URLSession.shared.dataTask(with: ApiClient.EndPoints.getProducts.url) { (data, respnse, error) in
             
             if let error = error {
@@ -41,13 +41,28 @@ class ApiClient {
             do {
                 let decoder = JSONDecoder()
                 let responseData = try decoder.decode([Products].self, from: data!)
-                print(responseData[0].price)
                 completion(responseData, nil)
             } catch {
                 completion(nil, error)
             }
         }
         task.resume()
-        
+    }
+    
+    class func getProdutsId (id : Int, completion: @escaping([Products]?,Error?)->Void) {
+        let task = URLSession.shared.dataTask(with: ApiClient.EndPoints.getProductId(id).url) { (data, response, error) in
+            if let error = error {
+                completion(nil, error)
+                print("Somethings went to worng", error)
+            }
+            do {
+                
+            } catch {
+                completion(nil, error)
+                print("Somethings went to worng", error)
+            }
+            
+        }
+        task.resume()
     }
 }

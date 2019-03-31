@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import SDWebImage
+import Kingfisher
 
-import SVProgressHUD
 class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     let CELL_ID = "CELL_ID"
@@ -30,7 +29,7 @@ class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout
     func fetchProduct () {
         ApiClient.getAllProducts { (response, data) in
             if let response = response {
-               // print(response)
+                // print(response)
                 self.product = response
                 print("All Products \(self.product)")
                 DispatchQueue.main.async {
@@ -44,10 +43,16 @@ class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout
         definesPresentationContext = true
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selected = product[indexPath.item]
+        let rowId = selected.id
+        
+        print(rowId)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: 175)
     }
-    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("count xxxx \(String(describing: product.count))")
@@ -58,17 +63,10 @@ class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout
         let apiData = product[indexPath.item]
         cell.titleLable.text = apiData.name
         cell.orginalPrice.text = apiData.price
-        cell.strikPrice.text = "Tk \(apiData.sale_price ?? "" )"
+        cell.strikPrice.text =  apiData.sale_price
         cell.titleDescription.text = apiData.short_description
-        
-        let img = apiData.images[0].src
-        if img.count ?? 0 >  0 {
-            print("img---\(img) \(img.count)")
-                 cell.imageV.sd_setImage(with: URL(string: img), completed: nil)
-        }
-        
-   
-        
+        let url = URL(string: apiData.images[0].src)
+        cell.imageV.kf.setImage(with: url)
         return cell
         
     }

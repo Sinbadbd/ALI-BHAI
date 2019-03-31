@@ -9,6 +9,7 @@
 import UIKit
 
 struct Products : Decodable{
+    let id : Int
     let name : String
     let short_description : String
     let price : String

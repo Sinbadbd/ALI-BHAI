@@ -10,9 +10,7 @@ import UIKit
 
 class HomePageCell : UICollectionViewCell {
     
-    let imageV:UIImageView = UIImageView()
-    
-    
+    let imageV:UIImageView = UIImageView()  
     let titleLable:UILabel = UILabel()
     let strikPrice:UILabel = UILabel()
     let orginalPrice:UILabel = UILabel()
@@ -21,8 +19,7 @@ class HomePageCell : UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let imageV = UIImageView(frame: CGRect(x: 10, y: 10, width: 150, height: 150))
-        imageV.backgroundColor = .white
+        imageV.frame = CGRect(x: 10, y: 10, width: 150, height: 150)
         addSubview(imageV)
         imageV.layer.cornerRadius = 12
         imageV.clipsToBounds = true
@@ -36,9 +33,10 @@ class HomePageCell : UICollectionViewCell {
         titleLable.textColor = .black
         titleLable.font = UIFont.boldSystemFont(ofSize: 18)
         
-        titleDescription.frame = CGRect(x: imageV.frame.origin.x + imageV.frame.width + 10, y: titleLable.frame.origin.y + titleLable.frame.height, width: 230, height: 40)
+        titleDescription.frame = CGRect(x: imageV.frame.origin.x + imageV.frame.width + 10, y: titleLable.frame.origin.y + titleLable.frame.height, width: 230, height: 60)
         addSubview(titleDescription)
         titleDescription.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+        titleDescription.backgroundColor = .red
         titleDescription.textColor = .black
         titleDescription.numberOfLines = 3
         titleDescription.font = UIFont(name: "", size: 12)
