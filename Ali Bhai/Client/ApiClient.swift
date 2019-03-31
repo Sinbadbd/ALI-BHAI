@@ -49,19 +49,23 @@ class ApiClient {
         task.resume()
     }
     
-    class func getProdutsId (id : Int, completion: @escaping([Products]?,Error?)->Void) {
+    class func getProdutsId (id : Int, completion: @escaping(Products?,Error?)->Void) {
+       //  print(ApiClient.EndPoints.getProductId(68).url)
         let task = URLSession.shared.dataTask(with: ApiClient.EndPoints.getProductId(id).url) { (data, response, error) in
             if let error = error {
                 completion(nil, error)
                 print("Somethings went to worng", error)
             }
+            print("---")
             do {
-                let decode = JSONDecoder()
-                let responseData = try decode.decode([Products].self, from: data!)
+                print("do====")
+                let decoder = JSONDecoder()
+                
+                let responseData = try decoder.decode(Products.self, from: data!)
+                print("responseDa -----\(responseData)")
                 completion(responseData, nil)
             } catch {
                 completion(nil, error)
-                print("Somethings went to worng", error)
             }
             
         }

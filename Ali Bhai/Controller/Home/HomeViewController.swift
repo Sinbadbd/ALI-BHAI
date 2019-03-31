@@ -15,7 +15,7 @@ class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout
     var apiResponse = ApiClient()
     
     var product = [Products]()
-    
+    //var products : Products?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +31,7 @@ class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout
             if let response = response {
                 // print(response)
                 self.product = response
-                print("All Products \(self.product)")
+                //print("All Products \(self.product)")
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
@@ -44,8 +44,14 @@ class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selected = product[indexPath.item]
-        let rowId = selected.id
+        var selected = product[indexPath.item]
+        var rowId = selected.id
+        
+        var detailsControler = ProductDetailsController()
+        
+   //   detailsControler.pr
+        
+        self.navigationController?.pushViewController(detailsControler, animated: true)
         
         print(rowId)
     }

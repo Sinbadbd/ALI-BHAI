@@ -23,6 +23,7 @@
 		A196F9C3224CBD2000F09319 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196F9C2224CBD2000F09319 /* MoreViewController.swift */; };
 		A196F9C5224CCDCE00F09319 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196F9C4224CCDCE00F09319 /* BaseListController.swift */; };
 		A196F9C8224CD69300F09319 /* HomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196F9C7224CD69300F09319 /* HomePageCell.swift */; };
+		A1E9DFD42251287E004009C9 /* ProductDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E9DFD32251287D004009C9 /* ProductDetailsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		A196F9C2224CBD2000F09319 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		A196F9C4224CCDCE00F09319 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		A196F9C7224CD69300F09319 /* HomePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCell.swift; sourceTree = "<group>"; };
+		A1E9DFD32251287D004009C9 /* ProductDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsController.swift; sourceTree = "<group>"; };
 		D9787B12080676CC5F6B3A9E /* Pods-Ali Bhai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ali Bhai.release.xcconfig"; path = "Target Support Files/Pods-Ali Bhai/Pods-Ali Bhai.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +164,7 @@
 			children = (
 				A196F9C6224CD68500F09319 /* Cell */,
 				A196F9BC224CA63500F09319 /* HomeViewController.swift */,
+				A1E9DFD32251287D004009C9 /* ProductDetailsController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A104B5CD2250B5B200619550 /* ApiClient.swift in Sources */,
+				A1E9DFD42251287E004009C9 /* ProductDetailsController.swift in Sources */,
 				A196F9BD224CA63500F09319 /* HomeViewController.swift in Sources */,
 				A196F9C5224CCDCE00F09319 /* BaseListController.swift in Sources */,
 				A196F9A8224CA19300F09319 /* ViewController.swift in Sources */,
