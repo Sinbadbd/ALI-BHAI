@@ -10,7 +10,14 @@ import UIKit
 
 class HomePageCell : UICollectionViewCell {
     
-   
+    let imageV:UIImageView = UIImageView()
+    
+    
+    let titleLable:UILabel = UILabel()
+    let strikPrice:UILabel = UILabel()
+    let orginalPrice:UILabel = UILabel()
+    let titleDescription:UILabel = UILabel()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -20,18 +27,19 @@ class HomePageCell : UICollectionViewCell {
         imageV.layer.cornerRadius = 12
         imageV.clipsToBounds = true
         imageV.contentMode = .scaleAspectFill
+        imageV.layer.borderColor = UIColor.lightGray.cgColor
+        imageV.layer.borderWidth = 1
         
-        let titleLable = UILabel(frame: CGRect(x: imageV.frame.origin.x + imageV.frame.width + 10, y: 10, width: 230, height: 30))
-        
+        titleLable.frame = CGRect(x: imageV.frame.origin.x + imageV.frame.width + 10, y: 10, width: 230, height: 30)
         addSubview(titleLable)
         titleLable.text = "Why do we use it?"
         titleLable.textColor = .black
         titleLable.font = UIFont.boldSystemFont(ofSize: 18)
         
-        let titleDescription = UILabel(frame: CGRect(x: imageV.frame.origin.x + imageV.frame.width + 10, y: titleLable.frame.origin.y + titleLable.frame.height, width: 230, height: 40))
+        titleDescription.frame = CGRect(x: imageV.frame.origin.x + imageV.frame.width + 10, y: titleLable.frame.origin.y + titleLable.frame.height, width: 230, height: 40)
         addSubview(titleDescription)
         titleDescription.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
-        titleDescription.textColor = .lightGray
+        titleDescription.textColor = .black
         titleDescription.numberOfLines = 3
         titleDescription.font = UIFont(name: "", size: 12)
         
@@ -39,13 +47,13 @@ class HomePageCell : UICollectionViewCell {
         addSubview(leftPriveView) 
         
         
-        let strikPrice = UILabel(frame: CGRect(x: leftPriveView.frame.origin.x, y: leftPriveView.frame.origin.y , width: 100, height: 20))
+        strikPrice.frame = CGRect(x: leftPriveView.frame.origin.x, y: leftPriveView.frame.origin.y , width: 100, height: 20)
         addSubview(strikPrice)
         strikPrice.attributedText = "$120".strikeThrough()
         strikPrice.textColor = .gray
         strikPrice.font = UIFont(name: "", size: 8)
         
-        let orginalPrice = UILabel(frame: CGRect(x: leftPriveView.frame.origin.x, y: strikPrice.frame.origin.y + strikPrice.frame.height + 10 , width: 100, height: 20))
+        orginalPrice.frame = CGRect(x: leftPriveView.frame.origin.x, y: strikPrice.frame.origin.y + strikPrice.frame.height + 10 , width: 100, height: 20)
         addSubview(orginalPrice)
         orginalPrice.text = "$120"
         orginalPrice.textColor = #colorLiteral(red: 1, green: 0.3610824653, blue: 0.366276469, alpha: 1)

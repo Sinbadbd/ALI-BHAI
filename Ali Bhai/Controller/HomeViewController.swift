@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import SDWebImage
 
+import SVProgressHUD
 class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     let CELL_ID = "CELL_ID"
     var apiResponse = ApiClient()
     
-    var product : [Products]?
+    var product = [Products]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +30,14 @@ class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout
     func fetchProduct () {
         ApiClient.getAllProducts { (response, data) in
             if let response = response {
-                print(response)
-                self.collectionView.reloadData()
+               // print(response)
+                self.product = response
+                print("All Products \(self.product)")
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
             }
         }
-        print("hah")
     }
     
     func setupSearchController(){
@@ -45,11 +50,25 @@ class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return product?.count ?? 0
+        print("count xxxx \(String(describing: product.count))")
+        return product.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath) as! HomePageCell
-        cell.appImage
+        let apiData = product[indexPath.item]
+        cell.titleLable.text = apiData.name
+        cell.orginalPrice.text = apiData.price
+        cell.strikPrice.text = "Tk \(apiData.sale_price ?? "" )"
+        cell.titleDescription.text = apiData.short_description
+        
+        let img = apiData.images[0].src
+        if img.count ?? 0 >  0 {
+            print("img---\(img) \(img.count)")
+                 cell.imageV.sd_setImage(with: URL(string: img), completed: nil)
+        }
+        
+   
+        
         return cell
         
     }
