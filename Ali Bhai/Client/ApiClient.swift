@@ -56,7 +56,9 @@ class ApiClient {
                 print("Somethings went to worng", error)
             }
             do {
-                
+                let decode = JSONDecoder()
+                let responseData = try decode.decode([Products].self, from: data!)
+                completion(responseData, nil)
             } catch {
                 completion(nil, error)
                 print("Somethings went to worng", error)
