@@ -10,6 +10,8 @@
 		4E2DA781AC22F2B7776EF586 /* Pods_Ali_Bhai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 066DBAFBF59266E3FF9CE075 /* Pods_Ali_Bhai.framework */; };
 		A104B5CD2250B5B200619550 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104B5CC2250B5B200619550 /* ApiClient.swift */; };
 		A104B5CF2250BA1B00619550 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = A104B5CE2250BA1B00619550 /* Products.swift */; };
+		A115AF8B22520A09005D5779 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115AF8A22520A09005D5779 /* Constants.swift */; };
+		A115AF8D22520A75005D5779 /* ImageSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115AF8C22520A75005D5779 /* ImageSliderCell.swift */; };
 		A196F9A6224CA19300F09319 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196F9A5224CA19300F09319 /* AppDelegate.swift */; };
 		A196F9A8224CA19300F09319 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196F9A7224CA19300F09319 /* ViewController.swift */; };
 		A196F9AB224CA19300F09319 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A196F9A9224CA19300F09319 /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 		15C7AACB00D98A6D4660EE47 /* Pods-Ali Bhai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ali Bhai.debug.xcconfig"; path = "Target Support Files/Pods-Ali Bhai/Pods-Ali Bhai.debug.xcconfig"; sourceTree = "<group>"; };
 		A104B5CC2250B5B200619550 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		A104B5CE2250BA1B00619550 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		A115AF8A22520A09005D5779 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A115AF8C22520A75005D5779 /* ImageSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSliderCell.swift; sourceTree = "<group>"; };
 		A196F9A2224CA19300F09319 /* Ali Bhai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ali Bhai.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A196F9A5224CA19300F09319 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A196F9A7224CA19300F09319 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +99,23 @@
 			path = Client;
 			sourceTree = "<group>";
 		};
+		A115AF882251DF65005D5779 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				A1E9DFD32251287D004009C9 /* ProductDetailsController.swift */,
+				A115AF8C22520A75005D5779 /* ImageSliderCell.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		A115AF89225209ED005D5779 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A115AF8A22520A09005D5779 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		A196F999224CA19300F09319 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +137,7 @@
 		A196F9A4224CA19300F09319 /* Ali Bhai */ = {
 			isa = PBXGroup;
 			children = (
+				A115AF89225209ED005D5779 /* Constants */,
 				A1E9DFD122511919004009C9 /* Helper */,
 				A104B5CB2250B58900619550 /* Client */,
 				A104B5CA2250B57900619550 /* Model */,
@@ -135,6 +157,7 @@
 		A196F9BB224CA61900F09319 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A115AF882251DF65005D5779 /* Details */,
 				A1E9DFD222511C60004009C9 /* Home */,
 				A196F9BE224CBC4800F09319 /* CartViewController.swift */,
 				A196F9C0224CBC6A00F09319 /* FavoriteViewController.swift */,
@@ -164,7 +187,6 @@
 			children = (
 				A196F9C6224CD68500F09319 /* Cell */,
 				A196F9BC224CA63500F09319 /* HomeViewController.swift */,
-				A1E9DFD32251287D004009C9 /* ProductDetailsController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -248,12 +270,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Ali Bhai/Pods-Ali Bhai-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -289,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A115AF8D22520A75005D5779 /* ImageSliderCell.swift in Sources */,
 				A104B5CD2250B5B200619550 /* ApiClient.swift in Sources */,
 				A1E9DFD42251287E004009C9 /* ProductDetailsController.swift in Sources */,
 				A196F9BD224CA63500F09319 /* HomeViewController.swift in Sources */,
@@ -300,6 +325,7 @@
 				A196F9B8224CA1E300F09319 /* BaseTabController.swift in Sources */,
 				A196F9C3224CBD2000F09319 /* MoreViewController.swift in Sources */,
 				A104B5CF2250BA1B00619550 /* Products.swift in Sources */,
+				A115AF8B22520A09005D5779 /* Constants.swift in Sources */,
 				A196F9BF224CBC4800F09319 /* CartViewController.swift in Sources */,
 				A196F9BA224CA37800F09319 /* Extension.swift in Sources */,
 			);

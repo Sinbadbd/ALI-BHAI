@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import SVProgressHUD
 
 class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
@@ -27,15 +28,15 @@ class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout
     
     
     func fetchProduct () {
+        SVProgressHUD.show()
         ApiClient.getAllProducts { (response, data) in
             if let response = response {
-                // print(response)
                 self.product = response
-                //print("All Products \(self.product)")
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
             }
+            SVProgressHUD.dismiss()
         }
     }
     
@@ -70,7 +71,5 @@ class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout
         return cell
         
     }
-    
-    
     
 }

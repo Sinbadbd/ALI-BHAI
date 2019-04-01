@@ -35,8 +35,7 @@ class HomePageCell : UICollectionViewCell {
         
         titleDescription.frame = CGRect(x: imageV.frame.origin.x + imageV.frame.width + 10, y: titleLable.frame.origin.y + titleLable.frame.height, width: 230, height: 60)
         addSubview(titleDescription)
-        titleDescription.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
-        titleDescription.backgroundColor = .red
+        titleDescription.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry" 
         titleDescription.textColor = .black
         titleDescription.numberOfLines = 3
         titleDescription.font = UIFont(name: "", size: 12)
