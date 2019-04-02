@@ -54,9 +54,13 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         self.setupViews()
         addChildViews()
         fetchDetailsApi()
-                
-        view.backgroundColor = .white
         
+        view.backgroundColor = .white
+     let theHeight = view.frame.size.height
+        let bottomView = UIView()
+        view.addSubview(bottomView)
+        bottomView.frame = CGRect(x: 0, y: theHeight - 100 , width: view.frame.width, height: 100)
+        bottomView.backgroundColor = .red
         
     }
     override func viewWillAppear(_ animated: Bool) { 
@@ -138,15 +142,11 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
             ])
     }
     
+    let bottomCartView = UIView()
     func addChildViews() {
         //Init
         let topHeaderView = UIView()
         let imageCollectionView = UIView()
-        
-        //imageCollectionView.backgroundColor = UIColor.red
-        
-        
-        //Layout -- Child views are added to the 'ContentView'
         self.contentView.addSubview(topHeaderView)
         self.contentView.addSubview(imageCollectionView)
         
@@ -159,12 +159,14 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         titleDescription.numberOfLines = 3
         
         self.contentView.addSubview(collectionView)
+    
         
         topHeaderView.translatesAutoresizingMaskIntoConstraints = false
         imageCollectionView.translatesAutoresizingMaskIntoConstraints = false
         titleLable.translatesAutoresizingMaskIntoConstraints = false
         titleDescription.translatesAutoresizingMaskIntoConstraints = false
-        
+        bottomCartView.translatesAutoresizingMaskIntoConstraints = false
+        bottomCartView.backgroundColor = .red
         self.contentView.addConstraints([
             
             titleLable.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
@@ -184,12 +186,34 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
             collectionView.widthAnchor.constraint(equalToConstant: view.frame.width),
             collectionView.heightAnchor.constraint(equalToConstant: 200),
             collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
-            
-            
             ])
+        
+     
         
     }
     
 }
 
 
+//fileprivate func setupName(){
+//    let height = CGFloat(50)
+//
+//    lblName.text = "Hello world"
+//    lblName.backgroundColor = .lightGray
+//
+//    //Step 1
+//    lblName.translatesAutoresizingMaskIntoConstraints = false
+//
+//    //Step 2
+//    self.view.addSubview(lblName)
+//
+//    //Step 3
+//    NSLayoutConstraint.activate([
+//
+//        lblName.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+//        lblName.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+//        lblName.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor,constant: -height),
+//        lblName.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+//        ])
+//
+//}
