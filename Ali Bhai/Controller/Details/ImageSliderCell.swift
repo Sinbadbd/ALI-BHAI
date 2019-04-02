@@ -9,21 +9,21 @@
 import UIKit
 class ImageSliderCell : UICollectionViewCell {
     
-    var productImages = UIImageView(cornerRadius: 12)
+    let imageV:UIImageView = UIImageView()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-//        backgroundColor = .yellow
+        imageV.frame = CGRect(x: 0, y: 0, width: 250, height: 200)
+        addSubview(imageV)
+        imageV.image = #imageLiteral(resourceName: "grocery")
+        imageV.layer.cornerRadius = 12
+        imageV.clipsToBounds = true
+        imageV.contentMode = .scaleAspectFill
+        imageV.layer.borderColor = UIColor.lightGray.cgColor
+        imageV.layer.borderWidth = 1
         
-        addSubview(productImages)
-        productImages.widthAnchor.constraint(equalToConstant: 150)
-        productImages.heightAnchor.constraint(equalToConstant: 150)
-        productImages.contentMode = .scaleAspectFill
-        productImages.backgroundColor = .red
-        productImages.layer.borderWidth = 1
-        productImages.layer.borderColor = UIColor.red.cgColor
-        productImages.clipsToBounds = true
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -11,9 +11,12 @@ import UIKit
 struct Products : Decodable{
     var id : Int?
     let name : String
+    let description: String
     let short_description : String
     let price : String
     let sale_price : String
+   // let stock_quantity: String
+    let stock_status: String
     let images : [ImagesAll]
 }
 struct ImagesAll : Decodable {
