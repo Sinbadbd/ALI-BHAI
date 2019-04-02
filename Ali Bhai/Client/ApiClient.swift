@@ -60,7 +60,7 @@ class ApiClient {
                 let decoder = JSONDecoder()
                 
                 let responseData = try decoder.decode(Products.self, from: data!)
-                //print("responseDa -----\(responseData)")
+                print("responseDa -----\(responseData)")
                 completion(responseData, nil)
             } catch {
                 completion(nil, error)
