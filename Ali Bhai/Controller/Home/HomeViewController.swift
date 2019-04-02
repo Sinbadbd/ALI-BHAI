@@ -26,6 +26,9 @@ class HomeViewController: BaseListController, UICollectionViewDelegateFlowLayout
         fetchProduct()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     func fetchProduct () {
         SVProgressHUD.show()

@@ -21,8 +21,8 @@ class ImageSliderCell : UICollectionViewCell {
         imageV.layer.cornerRadius = 12
         imageV.clipsToBounds = true
         imageV.contentMode = .scaleAspectFill
-//        imageV.layer.borderColor = UIColor.lightGray.cgColor
-//        imageV.layer.borderWidth = 1
+        imageV.layer.borderColor = UIColor.lightGray.cgColor
+        imageV.layer.borderWidth = 1
         
     }
     
