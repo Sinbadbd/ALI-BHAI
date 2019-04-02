@@ -21,28 +21,27 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
     var productImages = [ImagesAll]()
     var products = [Products]()
     
+    
+    let titleLable:UILabel = UILabel()
+    let strikPrice:UILabel = UILabel()
+    let orginalPrice:UILabel = UILabel()
+    let titleDescription:UILabel = UILabel()
+    
+    
+    
     var productId : Int! {
         didSet {
             print("app id", productId)
         }
     }
     
-    
-    
-    let imageV:UIImageView = UIImageView()
-    let strikPrice:UILabel = UILabel()
-    let orginalPrice:UILabel = UILabel()
-    let titleDescription:UILabel = UILabel()
-    let titleLable:UILabel = UILabel()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         //imgSlider = product?.images
+        //self.productImages = product?.images
         
-//        self.productImages = product?.images
-      
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
@@ -51,7 +50,7 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints =  false
         self.collectionView.register(ImageSliderCell.self, forCellWithReuseIdentifier: IMAGE_SLIDER_ID)
- 
+        
         self.setupViews()
         addChildViews()
         fetchDetailsApi()
@@ -65,42 +64,36 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         ApiClient.getProdutsId(id: productId ) { (response, error) in
             self.product = response
             print(response?.id, response?.name)
+            
             DispatchQueue.main.async {
                 self.view.setNeedsDisplay()
                 self.titleLable.text = response?.name
                 self.titleDescription.text = response?.short_description
-                
-//             self.collectionView.reloadData()
+                if let response = response {
+                    self.productImages = response.images
+                }
+               
+                self.collectionView.reloadData()
             }
         }
     }
-    
-    var Item : Products? {
-        didSet {
-            if let img = Item?.images[0].src {
-                print("img\(img)")
-            }
-           
-        }
-    }
+ 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-  
-         return 5
+        
+        print("count images  === \(productImages.count)")
+        
+        return productImages.count
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IMAGE_SLIDER_ID, for: indexPath) as! ImageSliderCell
-//        let apiData = products[0].images[0].src
-////        cell.productImages.image = apiData.images[0].src
-//        let url = URL(string: apiData )
-//        cell.productImages.kf.setImage(with: url)
-//        DispatchQueue.main.async {
-//             self.collectionView.reloadData()
-//        }
-        cell.backgroundColor = .red
-       
+//        let apiData = product?[indexPath.item] as Products
+        
+//        print(apiData)
+        let url = URL(string: product?.images[0].src ?? "" )
+        cell.imageV.kf.setImage(with: url)
         return cell
     }
     
@@ -151,7 +144,7 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         let imageCollectionView = UIView()
         //Theme
         topHeaderView.backgroundColor = UIColor.green
-        imageCollectionView.backgroundColor = UIColor.red
+        //        imageCollectionView.backgroundColor = UIColor.red
         
         
         //Layout -- Child views are added to the 'ContentView'
@@ -166,7 +159,7 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         titleDescription.textColor = UIColor.gray
         titleDescription.numberOfLines = 3
         
-        imageCollectionView.addSubview(collectionView)
+        self.contentView.addSubview(collectionView)
         
         topHeaderView.translatesAutoresizingMaskIntoConstraints = false
         imageCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -187,14 +180,14 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
             titleDescription.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             titleDescription.heightAnchor.constraint(equalToConstant: 60),
             
-            //            imageCollectionView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            imageCollectionView.topAnchor.constraint(equalTo: titleDescription.bottomAnchor, constant: 5),
-            imageCollectionView.widthAnchor.constraint(equalToConstant: view.frame.width),
-            imageCollectionView.heightAnchor.constraint(equalToConstant: 200),
-            imageCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+//            imageCollectionView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+//            imageCollectionView.topAnchor.constraint(equalTo: titleDescription.bottomAnchor, constant: 5),
+//            imageCollectionView.widthAnchor.constraint(equalToConstant: view.frame.width),
+//            imageCollectionView.heightAnchor.constraint(equalToConstant: 200),
+//            imageCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             
-            collectionView.centerXAnchor.constraint(equalTo: imageCollectionView.centerXAnchor),
-            collectionView.topAnchor.constraint(equalTo: imageCollectionView.bottomAnchor, constant: 50),
+            collectionView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            collectionView.topAnchor.constraint(equalTo: titleDescription.bottomAnchor, constant: 50),
             collectionView.widthAnchor.constraint(equalToConstant: view.frame.width),
             collectionView.heightAnchor.constraint(equalToConstant: 200),
             collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 0),
