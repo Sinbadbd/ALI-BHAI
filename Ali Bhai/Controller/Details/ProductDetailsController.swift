@@ -106,29 +106,64 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         return CGSize(width: 250, height: 200)
     }
     
-    let lblName = UILabel()
+    let bottomView = UILabel()
+    let addToCartButton = UIButton()
+    let buyNowButton = UIButton()
     fileprivate func setupName(){
-        let height = CGFloat(100)
+        let height = CGFloat(60)
         
-        lblName.text = "Hello world"
-        lblName.backgroundColor = .lightGray
+        //        bottomView.backgroundColor = .lightGray
         
         //Step 1
-        lblName.translatesAutoresizingMaskIntoConstraints = false
+        bottomView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(bottomView)
         
-        //Step 2
-        self.view.addSubview(lblName)
+        bottomView.addSubview(addToCartButton)
+        addToCartButton.translatesAutoresizingMaskIntoConstraints = false
+        addToCartButton.setTitle("ADD TO CART", for: .normal)
+        addToCartButton.setTitleColor(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), for: .normal)
+        addToCartButton.layer.borderColor = #colorLiteral(red: 0.968627451, green: 0.4745098039, blue: 0.4784313725, alpha: 1)
+        addToCartButton.layer.borderWidth = 1
+        addToCartButton.layer.cornerRadius = 6
+        addToCartButton.addTarget(self, action: #selector(handleAddToCart), for: .touchUpInside)
         
+        buyNowButton.translatesAutoresizingMaskIntoConstraints = false
+        bottomView.addSubview(buyNowButton)
+        buyNowButton.translatesAutoresizingMaskIntoConstraints = false
+        buyNowButton.setTitle("Buy Now", for: .normal)
+        buyNowButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        buyNowButton.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.4745098039, blue: 0.4784313725, alpha: 1)
+        buyNowButton.layer.cornerRadius = 6
+        buyNowButton.addTarget(self, action: #selector(handleBuyButton), for: .touchUpInside)
         //Step 3
         NSLayoutConstraint.activate([
-            lblName.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            lblName.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
-            lblName.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-            lblName.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -height),
+            bottomView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            bottomView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            bottomView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -height),
+            bottomView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            
+            addToCartButton.centerYAnchor.constraint(equalTo: bottomView.centerYAnchor),
+            addToCartButton.leftAnchor.constraint(equalTo: bottomView.leftAnchor, constant: 20),
+            addToCartButton.widthAnchor.constraint(equalToConstant: 170),
+            addToCartButton.heightAnchor.constraint(equalToConstant: 45),
+            
+            buyNowButton.centerYAnchor.constraint(equalTo: bottomView.centerYAnchor),
+            buyNowButton.rightAnchor.constraint(equalTo: bottomView.rightAnchor, constant: -20),
+            buyNowButton.widthAnchor.constraint(equalToConstant: 170),
+            buyNowButton.heightAnchor.constraint(equalToConstant: 45),
+            
+            
             ])
         
     }
     
+    @objc func handleAddToCart(){
+        print("add to cart")
+    }
+    
+    @objc func handleBuyButton(){
+          print("buy---")
+    }
     /** define the scrollview and content view along with the layout constraints */
     func setupViews() {
         self.view.backgroundColor = .white
@@ -186,28 +221,28 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         self.contentView.addSubview(orginalPrice)
         orginalPrice.text = "13212313"
         orginalPrice.textColor = .red
-//        orginalPrice.backgroundColor = .green
+        //        orginalPrice.backgroundColor = .green
         orginalPrice.numberOfLines = 1
         orginalPrice.font = UIFont.boldSystemFont(ofSize: 30)
         
         self.contentView.addSubview(strikPrice)
         strikPrice.text = "13212313"
         strikPrice.textColor = .gray
-//        strikPrice.backgroundColor = .blue
+        //        strikPrice.backgroundColor = .blue
         strikPrice.numberOfLines = 1
         strikPrice.font = UIFont.boldSystemFont(ofSize: 24)
         
         self.contentView.addSubview(stock_status)
         stock_status.text = "In Stock"
         stock_status.textColor = .gray
-//        stock_status.backgroundColor = .blue
+        //        stock_status.backgroundColor = .blue
         stock_status.numberOfLines = 1
         stock_status.font = UIFont.boldSystemFont(ofSize: 18)
         
         self.contentView.addSubview(fullDescription)
         fullDescription.text = "full Description"
         fullDescription.textColor = .gray
-//        fullDescription.backgroundColor = .blue
+        //        fullDescription.backgroundColor = .blue
         fullDescription.numberOfLines = 5
         fullDescription.font = UIFont.boldSystemFont(ofSize: 18)
         
