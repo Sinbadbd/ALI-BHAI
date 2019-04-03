@@ -17,56 +17,69 @@ class ApiClient {
         static let apiKeyParam = key
         case getProducts
         case getProductId(Int)
+        case getCategory
+        case getCategoryId(Int)
         
         var stringValue : String {
             switch self {
             case .getProducts: return EndPoints.BASE + "/products" + EndPoints.apiKeyParam
             case .getProductId (let id): return EndPoints.BASE + "/products/\(id)" +  EndPoints.apiKeyParam
+            case .getCategory: return EndPoints.BASE + "/products/categories" + EndPoints.apiKeyParam
+            case .getCategoryId (let id): return EndPoints.BASE + "/products/categories/(id)" + EndPoints.apiKeyParam
             }
         }
         var url : URL{
             return URL(string: stringValue)!
         }
     }
- 
-    class func getAllProducts (completion: @escaping([Products]?,Error?)->Void) {
-        let task = URLSession.shared.dataTask(with: ApiClient.EndPoints.getProducts.url) { (data, respnse, error) in
-            
-            if let error = error {
-                completion(nil, error)
-                print("Something went to worng!", error)
+    
+    // CREATE @GET REQUEST
+    class func taskForGetRequest<ResponseType: Decodable>(url:URL, response: ResponseType.Type, completion: @escaping(ResponseType?, Error?)->Void){
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(nil,error)
+                }
                 return
             }
-            
+            let decoder = JSONDecoder()
             do {
-                let decoder = JSONDecoder()
-                let responseData = try decoder.decode([Products].self, from: data!)
-                completion(responseData, nil)
+                let responseObject = try decoder.decode(ResponseType.self, from: data)
+                DispatchQueue.main.async {
+                    completion(responseObject, nil)
+                }
             } catch {
-                completion(nil, error)
+                DispatchQueue.main.async {
+                    completion(nil,error)
+                }
             }
         }
         task.resume()
     }
     
-    class func getProdutsId (id : Int, completion: @escaping(Products?,Error?)->Void) {
-       //print(ApiClient.EndPoints.getProductId(id).url)
-        let task = URLSession.shared.dataTask(with: ApiClient.EndPoints.getProductId(id).url) { (data, response, error) in
-            if let error = error {
-                completion(nil, error)
-                print("Somethings went to worng", error)
+    
+    
+    class func getAllProducts (completion: @escaping([Products]?,Error?)->Void) {
+        
+        taskForGetRequest(url: ApiClient.EndPoints.getProducts.url, response: [Products].self) { (response, error) in
+            if let response  = response {
+                //print(response)
+                completion(response, nil)
+            } else {
+                completion([], error)
+                print(error?.localizedDescription ?? "")
             }
-            do {
-                let decoder = JSONDecoder()
-                
-                let responseData = try decoder.decode(Products.self, from: data!)
-                print("responseDa -----\(responseData)")
-                completion(responseData, nil)
-            } catch {
-                completion(nil, error)
-            }
-            
         }
-        task.resume()
+    }
+    
+    class func getProdutsId (id : Int, completion: @escaping(Products?,Error?)->Void) {
+        taskForGetRequest(url: ApiClient.EndPoints.getProductId(id).url, response: Products.self) { (response, error) in
+            if let response = response {
+                completion(response, nil)
+            } else {
+                completion(nil, error)
+                print(error?.localizedDescription ?? "")
+            }
+        }
     }
 }
