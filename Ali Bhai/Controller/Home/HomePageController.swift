@@ -15,6 +15,7 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         setupViews()
     }
     
@@ -23,7 +24,7 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         layout.minimumLineSpacing = 12
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .clear
+//        cv.backgroundColor = .clear
         return cv
     }()
     
@@ -45,7 +46,7 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         if section == 0 {
             return 1
         } else if section == 1 {
-          return 4
+            return 4
         } else {
             return 9
         }
@@ -55,7 +56,7 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         if indexPath.section == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HOME_IMAGE_CELL, for: indexPath) as! HomeImageSliderCell
             return cell
-         
+            
         } else if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CATEGORY_CELL, for: indexPath) as! CategoryCell
             cell.backgroundColor = .green
@@ -65,17 +66,17 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
             cell.backgroundColor = .red
             return cell
         }
-       
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
-             return CGSize(width: view.frame.width, height: 300)
+            return CGSize(width: view.frame.width, height: 300)
         } else if indexPath.section == 1 {
             return CGSize(width: (view.frame.width) / 4 - 16, height: 40)
         } else {
-             return CGSize(width: (view.frame.width) / 2 - 16 , height: 200)
-           
+            return CGSize(width: (view.frame.width) / 2 - 16 , height: 200)
+            
         }
         
     }
@@ -93,32 +94,4 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
     }
 }
 
-class HomeImageSliderCell: UICollectionViewCell {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .blue
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-class CategoryCell: UICollectionViewCell {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
 
-class ProductCell: UICollectionViewCell {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}

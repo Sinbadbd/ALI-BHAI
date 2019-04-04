@@ -18,7 +18,7 @@ class BaseTabController : UITabBarController {
         
         viewControllers = [
             createNavController(viewController: HomePageController(), title: "Home", imageView: "home"),
-            //createNavController(viewController: HomeViewController(), title: "Home", imageView: "home"),
+          ////  createNavController(viewController: HomeViewController(), title: "Home", imageView: "home"),
             createNavController(viewController: CartViewController(), title: "Cart", imageView: "cart"),
             createNavController(viewController: FavoriteViewController(), title: "Favorite", imageView: "heart"),
             createNavController(viewController: MoreViewController(), title: "More", imageView: "menu")
