@@ -50,7 +50,7 @@ class HomeImageSliderCell: UICollectionViewCell, UICollectionViewDataSource, UIC
         
         collectionView.dataSource = self
         collectionView.delegate = self
-       collectionView.backgroundColor = UIColor.lightGray
+       collectionView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         addSubview(collectionView)
         collectionView.register(ImageCell.self, forCellWithReuseIdentifier: CELL)
         collectionView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init())

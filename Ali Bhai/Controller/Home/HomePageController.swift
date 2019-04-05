@@ -7,16 +7,22 @@
 //
 
 import UIKit
+import SVProgressHUD
+import Kingfisher
+
 class HomePageController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     let CATEGORY_CELL =  "CATEGORY_CELL"
     let PRODUCT_CELL = "PRODUCT_CELL"
     let HOME_IMAGE_CELL = "HOME_IMAGE_CELL"
     
+    var product = [Products]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupViews()
+        fetchData()
     }
     
     let collectionView: UICollectionView = {
@@ -24,13 +30,26 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         layout.minimumLineSpacing = 12
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//        cv.backgroundColor = .clear
+        cv.backgroundColor = .clear
         return cv
     }()
+    
+    func fetchData() {
+        ApiClient.getAllProducts { (response, error) in
+            if let response = response {
+                self.product = response
+                DispatchQueue.main.async { 
+                    self.collectionView.reloadData()
+                }
+            }
+            
+        }
+    }
     
     func setupViews(){
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundColor = .white
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CATEGORY_CELL)
         collectionView.register(ProductCell.self, forCellWithReuseIdentifier: PRODUCT_CELL)
         collectionView.register(HomeImageSliderCell.self, forCellWithReuseIdentifier: HOME_IMAGE_CELL)
@@ -39,6 +58,10 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         collectionView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init())
         
     }
+    
+    
+    
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
     }
@@ -48,7 +71,7 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         } else if section == 1 {
             return 4
         } else {
-            return 9
+            return product.count
         }
     }
     
@@ -63,7 +86,19 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PRODUCT_CELL, for: indexPath) as! ProductCell
-            cell.backgroundColor = .red
+            let productData = product[indexPath.item]
+            cell.productTitle.text = productData.name
+            cell.productPrice.text = productData.price
+            cell.productOldPrice.text = productData.sale_price
+            let url = URL(string: productData.images[0].src)
+            cell.productImage.kf.setImage(with: url)
+            
+            cell.layer.cornerRadius = 10
+            cell.layer.shadowColor = UIColor.gray.cgColor
+            cell.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+            cell.layer.shadowRadius = 1.0
+            cell.layer.shadowOpacity = 0.5
+            cell.layer.masksToBounds = false
             return cell
         }
         
@@ -75,7 +110,7 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         } else if indexPath.section == 1 {
             return CGSize(width: (view.frame.width) / 4 - 16, height: 40)
         } else {
-            return CGSize(width: (view.frame.width) / 2 - 16 , height: 200)
+            return CGSize(width: (view.frame.width) / 2 - 16 , height: 250)
             
         }
         
