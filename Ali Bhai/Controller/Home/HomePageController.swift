@@ -23,6 +23,7 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         view.backgroundColor = .white
         setupViews()
         fetchData()
+        apiData()
     }
     
     let collectionView: UICollectionView = {
@@ -58,8 +59,19 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         collectionView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init())
         
     }
+    var category = [Category]()
     
-    
+    func apiData (){
+        ApiClient.getAllCategory { (response, error) in
+            if let response = response {
+                self.category = response
+                print("cat\(response)")
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+    }
     
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -82,7 +94,6 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
             
         } else if indexPath.section == 1 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CATEGORY_CELL, for: indexPath) as! CategoryCell
-            cell.backgroundColor = .green
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PRODUCT_CELL, for: indexPath) as! ProductCell
@@ -108,7 +119,7 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         if indexPath.section == 0 {
             return CGSize(width: view.frame.width, height: 300)
         } else if indexPath.section == 1 {
-            return CGSize(width: view.frame.width, height: 120)
+            return CGSize(width: view.frame.width, height: 140)
         } else {
             return CGSize(width: (view.frame.width) / 2 - 16 , height: 250)
             

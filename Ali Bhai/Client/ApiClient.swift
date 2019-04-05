@@ -82,4 +82,19 @@ class ApiClient {
             }
         }
     }
+    
+    
+    class func getAllCategory(completion: @escaping([Category]?, Error?)->Void){
+        print(ApiClient.EndPoints.getCategory.url)
+        taskForGetRequest(url: ApiClient.EndPoints.getCategory.url, response: [Category].self) { (response, error) in
+            if let response = response {
+                completion(response, nil)
+                      print("cat\(response)")
+            } else {
+                completion(nil, error)
+                print(error?.localizedDescription ?? "")
+            }
+        }
+    }
+    
 }

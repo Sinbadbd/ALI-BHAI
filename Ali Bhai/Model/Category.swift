@@ -10,7 +10,7 @@ import Foundation
 struct Category : Decodable {
     let id : Int
     let name : String
-    let image : [CategoryImage]
+    let image : CategoryImage
 }
 struct CategoryImage : Decodable {
     let src : String
