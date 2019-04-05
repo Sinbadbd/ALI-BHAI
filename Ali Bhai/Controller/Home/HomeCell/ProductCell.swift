@@ -38,7 +38,7 @@ class ProductCell: UICollectionViewCell {
         productPrice.anchor(top: productTitle.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 10, bottom: 5, right: 0))
         productOldPrice.anchor(top: productPrice.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 5, left: 10, bottom: 5, right: 0))
         productFavoriteItem.anchor(top: nil, leading: productOldPrice.trailingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 5, right: 5), size: CGSize(width: 20, height: 20))
-       // productFavoriteItem.backgroundColor = .yellow
+        productFavoriteItem.backgroundColor = .red
         productFavoriteItem.contentMode = .scaleAspectFill
         productFavoriteItem.clipsToBounds = true
     }

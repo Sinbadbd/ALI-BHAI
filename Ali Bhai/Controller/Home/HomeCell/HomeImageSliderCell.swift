@@ -34,12 +34,12 @@ class HomeImageSliderCell: UICollectionViewCell, UICollectionViewDataSource, UIC
     }
     func fetchAPi(){
         ApiClient.getAllProducts { (response, error) in
-           
+            
             if let response = response {
-                 self.products = response
+                self.products = response
                 self.productImages = response[0].images
             }
-           
+            
             DispatchQueue.main.async { 
                 self.collectionView.reloadData()
             }
@@ -50,7 +50,7 @@ class HomeImageSliderCell: UICollectionViewCell, UICollectionViewDataSource, UIC
         
         collectionView.dataSource = self
         collectionView.delegate = self
-       collectionView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        collectionView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         addSubview(collectionView)
         collectionView.register(ImageCell.self, forCellWithReuseIdentifier: CELL)
         collectionView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init())

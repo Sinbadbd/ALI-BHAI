@@ -69,7 +69,7 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         if section == 0 {
             return 1
         } else if section == 1 {
-            return 4
+            return 1
         } else {
             return product.count
         }
@@ -108,7 +108,7 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         if indexPath.section == 0 {
             return CGSize(width: view.frame.width, height: 300)
         } else if indexPath.section == 1 {
-            return CGSize(width: (view.frame.width) / 4 - 16, height: 40)
+            return CGSize(width: view.frame.width, height: 120)
         } else {
             return CGSize(width: (view.frame.width) / 2 - 16 , height: 250)
             
