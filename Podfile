@@ -8,4 +8,5 @@ target 'Ali Bhai' do
   # Pods for Ali Bhai
  pod 'Kingfisher', '~> 5.0'
  pod 'SVProgressHUD'
+ pod 'RealmSwift'
 end

@@ -59,6 +59,13 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         bottomView.frame = CGRect(x: 0, y: theHeight - 100 , width: view.frame.width, height: 100)
         bottomView.backgroundColor = .red
         
+        
+        
+    }
+    @objc func buttonClicked(sender : UIButton){
+        let alert = UIAlertController(title: "Clicked", message: "You have clicked on the button", preferredStyle: .alert)
+        
+        self.present(alert, animated: true, completion: nil)
     }
     override func viewWillAppear(_ animated: Bool) { 
         self.tabBarController?.tabBar.isHidden = true
@@ -106,29 +113,77 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         return CGSize(width: 250, height: 200)
     }
     
-    let lblName = UILabel()
+    let bottomView = UILabel()
+    let addToCartButton =   UIButton(type: .system)
+    let buyNowButton =   UIButton(type: .system)
     fileprivate func setupName(){
-        let height = CGFloat(100)
+        let height = CGFloat(60)
         
-        lblName.text = "Hello world"
-        lblName.backgroundColor = .lightGray
+        //        bottomView.backgroundColor = .lightGray
         
         //Step 1
-        lblName.translatesAutoresizingMaskIntoConstraints = false
+        bottomView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(bottomView)
+        let buttonX = 150
+        let buttonY = 150
+        let buttonWidth = 100
+        let buttonHeight = 50
         
-        //Step 2
-        self.view.addSubview(lblName)
+        let button = UIButton(type: .system)
+      
+       // self.view.addSubview(button)
+         view.addSubview(button)
+        button.setTitle("Click here", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = .red
+        button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
         
+        button.frame = CGRect(x: buttonX, y: buttonY, width: buttonWidth, height: buttonHeight)
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("ADD TO CART", for: .normal)
+        button.setTitleColor(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), for: .normal)
+        button.layer.borderColor = #colorLiteral(red: 0.968627451, green: 0.4745098039, blue: 0.4784313725, alpha: 1)
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = 6
+      button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        
+        buyNowButton.translatesAutoresizingMaskIntoConstraints = false
+        bottomView.addSubview(buyNowButton)
+        buyNowButton.translatesAutoresizingMaskIntoConstraints = false
+        buyNowButton.setTitle("Buy Now", for: .normal)
+        buyNowButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
+        buyNowButton.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.4745098039, blue: 0.4784313725, alpha: 1)
+        buyNowButton.layer.cornerRadius = 6
+        buyNowButton.addTarget(self, action: #selector(handleBuyButton), for: .touchUpInside)
         //Step 3
         NSLayoutConstraint.activate([
-            lblName.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            lblName.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
-            lblName.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-            lblName.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -height),
+            button.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            button.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -height),
+            button.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            
+//            button.centerYAnchor.constraint(equalTo: bottomView.centerYAnchor),
+//            button.leftAnchor.constraint(equalTo: bottomView.leftAnchor, constant: 20),
+//            button.widthAnchor.constraint(equalToConstant: 170),
+//            button.heightAnchor.constraint(equalToConstant: 45),
+            
+//            buyNowButton.centerYAnchor.constraint(equalTo: bottomView.centerYAnchor),
+//            buyNowButton.rightAnchor.constraint(equalTo: bottomView.rightAnchor, constant: -20),
+//            buyNowButton.widthAnchor.constraint(equalToConstant: 170),
+//            buyNowButton.heightAnchor.constraint(equalToConstant: 45),
+            
+            
             ])
         
     }
+    @objc func handleAddToCart(){
+        print("add to cart")
+    }
     
+    @objc func handleBuyButton(){
+        print("buy---")
+    }
     /** define the scrollview and content view along with the layout constraints */
     func setupViews() {
         self.view.backgroundColor = .white

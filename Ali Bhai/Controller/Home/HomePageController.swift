@@ -25,6 +25,9 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         fetchData()
         apiData()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -85,6 +88,13 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         } else {
             return product.count
         }
+    }
+    
+     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selected = product[indexPath.item]
+        let detailsControler = ProductDetailsController()
+        detailsControler.productId = selected.id
+        self.navigationController?.pushViewController(detailsControler, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
