@@ -16,16 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let splashVC = SplashScreen()
+        //window?.rootViewController = splashVC
         
-        window?.rootViewController = splashVC
-    
-        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleDismissSplash), userInfo: nil, repeats: false)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let swipingController = SwipingController(collectionViewLayout: layout)
+        window?.rootViewController = swipingController
+      //  Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleDismissSplash), userInfo: nil, repeats: false)
         
         return true
     }
 
     @objc func handleDismissSplash(){
         let mainVC = BaseTabController()
+        
+        
         let introVC = IntroductionVC()
         window?.rootViewController = introVC
         window?.makeKeyAndVisible()
