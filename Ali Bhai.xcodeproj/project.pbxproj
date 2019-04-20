@@ -33,6 +33,8 @@
 		A1BD275F22578DF000B54858 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD275E22578DF000B54858 /* Category.swift */; };
 		A1BD27612257B05000B54858 /* CategoryByProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD27602257B04F00B54858 /* CategoryByProduct.swift */; };
 		A1E9DFD42251287E004009C9 /* ProductDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E9DFD32251287D004009C9 /* ProductDetailsController.swift */; };
+		A1EE7BC82269CEB700032FCF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EE7BC72269CEB700032FCF /* Colors.swift */; };
+		A1EE7BCA2269CF0E00032FCF /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EE7BC92269CF0E00032FCF /* SplashScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +67,8 @@
 		A1BD275E22578DF000B54858 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A1BD27602257B04F00B54858 /* CategoryByProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryByProduct.swift; sourceTree = "<group>"; };
 		A1E9DFD32251287D004009C9 /* ProductDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsController.swift; sourceTree = "<group>"; };
+		A1EE7BC72269CEB700032FCF /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		A1EE7BC92269CF0E00032FCF /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashScreen.swift; path = "Ali Bhai/SplashScreen.swift"; sourceTree = SOURCE_ROOT; };
 		D9787B12080676CC5F6B3A9E /* Pods-Ali Bhai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ali Bhai.release.xcconfig"; path = "Target Support Files/Pods-Ali Bhai/Pods-Ali Bhai.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +180,7 @@
 				A196F9AE224CA1AF00F09319 /* LaunchScreen.storyboard */,
 				A196F9B1224CA1AF00F09319 /* Info.plist */,
 				A196F9B7224CA1E300F09319 /* BaseTabController.swift */,
+				A1EE7BC92269CF0E00032FCF /* SplashScreen.swift */,
 			);
 			path = "Ali Bhai";
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			children = (
 				A18E149A22568B2400AAC901 /* UIView+Layout.swift */,
 				A196F9B9224CA37800F09319 /* Extension.swift */,
+				A1EE7BC72269CEB700032FCF /* Colors.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -301,6 +307,7 @@
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -310,6 +317,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1EE7BCA2269CF0E00032FCF /* SplashScreen.swift in Sources */,
 				A115AF8D22520A75005D5779 /* ImageSliderCell.swift in Sources */,
 				A18E14A02256A9B000AAC901 /* CategoryCell.swift in Sources */,
 				A104B5CD2250B5B200619550 /* ApiClient.swift in Sources */,
@@ -359,6 +368,7 @@
 				A196F9A6224CA19300F09319 /* AppDelegate.swift in Sources */,
 				A1BD27612257B05000B54858 /* CategoryByProduct.swift in Sources */,
 				A196F9C1224CBC6A00F09319 /* FavoriteViewController.swift in Sources */,
+				A1EE7BC82269CEB700032FCF /* Colors.swift in Sources */,
 				A196F9B8224CA1E300F09319 /* BaseTabController.swift in Sources */,
 				A196F9C3224CBD2000F09319 /* MoreViewController.swift in Sources */,
 				A104B5CF2250BA1B00619550 /* Products.swift in Sources */,

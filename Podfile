@@ -9,4 +9,5 @@ target 'Ali Bhai' do
  pod 'Kingfisher', '~> 5.0'
  pod 'SVProgressHUD'
  pod 'RealmSwift'
+ pod 'RevealingSplashView'
 end

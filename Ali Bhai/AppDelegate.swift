@@ -7,21 +7,29 @@
 //
 
 import UIKit
+import RevealingSplashView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        window?.rootViewController = BaseTabController()
+        let splashVC = SplashScreen()
+        
+        window?.rootViewController = splashVC
     
+        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(handleDismissSplash), userInfo: nil, repeats: false)
         
         return true
     }
 
+    @objc func handleDismissSplash(){
+        let mainVC = BaseTabController()
+        window?.rootViewController = mainVC
+        window?.makeKeyAndVisible()
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

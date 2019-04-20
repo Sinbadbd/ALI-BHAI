@@ -62,15 +62,20 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         
         
     }
+    
     @objc func buttonClicked(sender : UIButton){
-        let alert = UIAlertController(title: "Clicked", message: "You have clicked on the button", preferredStyle: .alert)
-        
-        self.present(alert, animated: true, completion: nil)
+        print("hah")
     }
-    override func viewWillAppear(_ animated: Bool) { 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
         self.tabBarController?.tabBar.isHidden = true
     }
-    
+   
     func fetchDetailsApi(){
         ApiClient.getProdutsId(id: productId ) { (response, error) in
             SVProgressHUD.show()
@@ -130,9 +135,9 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         let buttonHeight = 50
         
         let button = UIButton(type: .system)
-      
-       // self.view.addSubview(button)
-         view.addSubview(button)
+        
+        // self.view.addSubview(button)
+        view.addSubview(button)
         button.setTitle("Click here", for: .normal)
         button.tintColor = .white
         button.backgroundColor = .red
@@ -146,7 +151,7 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         button.layer.borderColor = #colorLiteral(red: 0.968627451, green: 0.4745098039, blue: 0.4784313725, alpha: 1)
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 6
-      button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
         
         buyNowButton.translatesAutoresizingMaskIntoConstraints = false
         bottomView.addSubview(buyNowButton)
@@ -156,6 +161,7 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         buyNowButton.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.4745098039, blue: 0.4784313725, alpha: 1)
         buyNowButton.layer.cornerRadius = 6
         buyNowButton.addTarget(self, action: #selector(handleBuyButton), for: .touchUpInside)
+        buyNowButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: nil)
         //Step 3
         NSLayoutConstraint.activate([
             button.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
@@ -163,15 +169,15 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
             button.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -height),
             button.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
             
-//            button.centerYAnchor.constraint(equalTo: bottomView.centerYAnchor),
-//            button.leftAnchor.constraint(equalTo: bottomView.leftAnchor, constant: 20),
-//            button.widthAnchor.constraint(equalToConstant: 170),
-//            button.heightAnchor.constraint(equalToConstant: 45),
+            //            button.centerYAnchor.constraint(equalTo: bottomView.centerYAnchor),
+            //            button.leftAnchor.constraint(equalTo: bottomView.leftAnchor, constant: 20),
+            //            button.widthAnchor.constraint(equalToConstant: 170),
+            //            button.heightAnchor.constraint(equalToConstant: 45),
             
-//            buyNowButton.centerYAnchor.constraint(equalTo: bottomView.centerYAnchor),
-//            buyNowButton.rightAnchor.constraint(equalTo: bottomView.rightAnchor, constant: -20),
-//            buyNowButton.widthAnchor.constraint(equalToConstant: 170),
-//            buyNowButton.heightAnchor.constraint(equalToConstant: 45),
+            //            buyNowButton.centerYAnchor.constraint(equalTo: bottomView.centerYAnchor),
+            //            buyNowButton.rightAnchor.constraint(equalTo: bottomView.rightAnchor, constant: -20),
+            //            buyNowButton.widthAnchor.constraint(equalToConstant: 170),
+            //            buyNowButton.heightAnchor.constraint(equalToConstant: 45),
             
             
             ])
@@ -241,28 +247,28 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         self.contentView.addSubview(orginalPrice)
         orginalPrice.text = "13212313"
         orginalPrice.textColor = .red
-//        orginalPrice.backgroundColor = .green
+        //        orginalPrice.backgroundColor = .green
         orginalPrice.numberOfLines = 1
         orginalPrice.font = UIFont.boldSystemFont(ofSize: 30)
         
         self.contentView.addSubview(strikPrice)
         strikPrice.text = "13212313"
         strikPrice.textColor = .gray
-//        strikPrice.backgroundColor = .blue
+        //        strikPrice.backgroundColor = .blue
         strikPrice.numberOfLines = 1
         strikPrice.font = UIFont.boldSystemFont(ofSize: 24)
         
         self.contentView.addSubview(stock_status)
         stock_status.text = "In Stock"
         stock_status.textColor = .gray
-//        stock_status.backgroundColor = .blue
+        //        stock_status.backgroundColor = .blue
         stock_status.numberOfLines = 1
         stock_status.font = UIFont.boldSystemFont(ofSize: 18)
         
         self.contentView.addSubview(fullDescription)
         fullDescription.text = "full Description"
         fullDescription.textColor = .gray
-//        fullDescription.backgroundColor = .blue
+        //        fullDescription.backgroundColor = .blue
         fullDescription.numberOfLines = 5
         fullDescription.font = UIFont.boldSystemFont(ofSize: 18)
         
