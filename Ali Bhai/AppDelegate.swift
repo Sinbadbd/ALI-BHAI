@@ -19,14 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = splashVC
     
-        Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(handleDismissSplash), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleDismissSplash), userInfo: nil, repeats: false)
         
         return true
     }
 
     @objc func handleDismissSplash(){
         let mainVC = BaseTabController()
-        window?.rootViewController = mainVC
+        let introVC = IntroductionVC()
+        window?.rootViewController = introVC
         window?.makeKeyAndVisible()
     }
     

@@ -18,6 +18,9 @@ extension UIView {
         layer.insertSublayer(gradientLayer, at: 0)
     }
     
+  
+}
+extension UIButton {
     func setGradientButton(colorTop: UIColor, colorBottom: UIColor){
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [colorBottom.cgColor, colorTop.cgColor]
@@ -28,7 +31,6 @@ extension UIView {
         layer.insertSublayer(gradientLayer, at: 0)
     }
 }
-
 extension UIColor {
     func rgba(r: Int, g: Int, b : Int, a: Float) -> UIColor {
         return UIColor(red: CGFloat(r/255), green: CGFloat(g/255), blue: CGFloat(b/255), alpha: CGFloat(a))
