@@ -78,11 +78,19 @@ class SwipingController : UICollectionViewController, UICollectionViewDelegateFl
     @objc func nextButtonClicked(){
         let nextIndex = min(pageController.currentPage + 1, intro.count - 1)
         let indexPath = IndexPath(item: nextIndex, section: 0)
+      
+        if ((indexPath.lastIndex(of: 3)) != nil) { 
+            Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(handleHomePage), userInfo: nil, repeats: false)
+              print(indexPath)
+        }
         pageController.currentPage = nextIndex
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        
     }
     
+    @objc func handleHomePage(){
+        let homePage = HomePageController()
+        self.present(homePage, animated: true, completion: nil)
+    }
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let x = targetContentOffset.pointee.x
         pageController.currentPage = Int(x / view.frame.width)
