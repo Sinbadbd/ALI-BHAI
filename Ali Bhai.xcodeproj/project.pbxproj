@@ -36,6 +36,7 @@
 		A196F9C8224CD69300F09319 /* HomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196F9C7224CD69300F09319 /* HomePageCell.swift */; };
 		A1BD275F22578DF000B54858 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD275E22578DF000B54858 /* Category.swift */; };
 		A1BD27612257B05000B54858 /* CategoryByProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD27602257B04F00B54858 /* CategoryByProduct.swift */; };
+		A1CE9BB0227E1B9F002977AC /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE9BAF227E1B9F002977AC /* ProductDetailsVC.swift */; };
 		A1E9DFD42251287E004009C9 /* ProductDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E9DFD32251287D004009C9 /* ProductDetailsController.swift */; };
 		A1EE7BC82269CEB700032FCF /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EE7BC72269CEB700032FCF /* Colors.swift */; };
 		A1EE7BCA2269CF0E00032FCF /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EE7BC92269CF0E00032FCF /* SplashScreen.swift */; };
@@ -74,6 +75,7 @@
 		A196F9C7224CD69300F09319 /* HomePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCell.swift; sourceTree = "<group>"; };
 		A1BD275E22578DF000B54858 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A1BD27602257B04F00B54858 /* CategoryByProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryByProduct.swift; sourceTree = "<group>"; };
+		A1CE9BAF227E1B9F002977AC /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
 		A1E9DFD32251287D004009C9 /* ProductDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsController.swift; sourceTree = "<group>"; };
 		A1EE7BC72269CEB700032FCF /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A1EE7BC92269CF0E00032FCF /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashScreen.swift; path = "Ali Bhai/SplashScreen.swift"; sourceTree = SOURCE_ROOT; };
@@ -133,6 +135,7 @@
 				A1E9DFD32251287D004009C9 /* ProductDetailsController.swift */,
 				A115AF8C22520A75005D5779 /* ImageSliderCell.swift */,
 				A1BD27602257B04F00B54858 /* CategoryByProduct.swift */,
+				A1CE9BAF227E1B9F002977AC /* ProductDetailsVC.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				A18E149E2256A23500AAC901 /* HomeImageSliderCell.swift in Sources */,
 				A196F9A8224CA19300F09319 /* ViewController.swift in Sources */,
 				A117B008226AEC210086BA5D /* IntroductionVC.swift in Sources */,
+				A1CE9BB0227E1B9F002977AC /* ProductDetailsVC.swift in Sources */,
 				A196F9C8224CD69300F09319 /* HomePageCell.swift in Sources */,
 				A196F9A6224CA19300F09319 /* AppDelegate.swift in Sources */,
 				A1BD27612257B05000B54858 /* CategoryByProduct.swift in Sources */,
