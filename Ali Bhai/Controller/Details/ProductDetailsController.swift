@@ -83,11 +83,11 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
             DispatchQueue.main.async {
                 self.view.setNeedsDisplay()
                 self.titleLable.text = response?.name
-                self.titleDescription.text = response?.short_description
+                self.titleDescription.text = "\((response?.short_description)?.stripOutHtml())"
                 self.strikPrice.text = response?.sale_price
                 self.orginalPrice.text = response?.price
                 self.stock_status.text = response?.stock_status
-                self.fullDescription.text = response?.description
+                self.fullDescription.text = "\(String(describing: (response?.description)?.stripOutHtml()))"
                 if let response = response {
                     self.productImages = response.images
                 }

@@ -68,6 +68,7 @@ class SwipingController : UICollectionViewController, UICollectionViewDelegateFl
         stackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 
+   
     @objc func prevButtonClicked(){
         let nextIndex = max(pageController.currentPage - 1, 0)
         let indexPath = IndexPath(item: nextIndex, section: 0)
@@ -86,10 +87,14 @@ class SwipingController : UICollectionViewController, UICollectionViewDelegateFl
         pageController.currentPage = nextIndex
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
-    
+    let user = UserDefaults.standard
     @objc func handleHomePage(){
-        let homePage = HomePageController()
+        let homePage = BaseTabController()
+        //let homePage = HomeViewController()
         self.present(homePage, animated: true, completion: nil)
+        user.set(true, forKey: "splash")
+        user.synchronize()
+        print("save-splash\(user)")
     }
     override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let x = targetContentOffset.pointee.x

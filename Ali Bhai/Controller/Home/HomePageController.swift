@@ -24,10 +24,19 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         setupViews()
         fetchData()
         apiData()
+        
+       isSplashScreen()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = false
+       self.tabBarController?.tabBar.isHidden = false
     }
+    
+    
+    func isSplashScreen()-> Bool {
+        return UserDefaults.standard.bool(forKey: "splash")
+    }
+    
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

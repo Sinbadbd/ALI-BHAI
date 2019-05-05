@@ -34,6 +34,7 @@
 		A196F9C3224CBD2000F09319 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196F9C2224CBD2000F09319 /* MoreViewController.swift */; };
 		A196F9C5224CCDCE00F09319 /* BaseListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196F9C4224CCDCE00F09319 /* BaseListController.swift */; };
 		A196F9C8224CD69300F09319 /* HomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A196F9C7224CD69300F09319 /* HomePageCell.swift */; };
+		A1A8A959227F469C005FEBF2 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A8A958227F469C005FEBF2 /* UserDefaultManager.swift */; };
 		A1BD275F22578DF000B54858 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD275E22578DF000B54858 /* Category.swift */; };
 		A1BD27612257B05000B54858 /* CategoryByProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BD27602257B04F00B54858 /* CategoryByProduct.swift */; };
 		A1CE9BB0227E1B9F002977AC /* ProductDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CE9BAF227E1B9F002977AC /* ProductDetailsVC.swift */; };
@@ -73,6 +74,7 @@
 		A196F9C2224CBD2000F09319 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		A196F9C4224CCDCE00F09319 /* BaseListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListController.swift; sourceTree = "<group>"; };
 		A196F9C7224CD69300F09319 /* HomePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCell.swift; sourceTree = "<group>"; };
+		A1A8A958227F469C005FEBF2 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		A1BD275E22578DF000B54858 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A1BD27602257B04F00B54858 /* CategoryByProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryByProduct.swift; sourceTree = "<group>"; };
 		A1CE9BAF227E1B9F002977AC /* ProductDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsVC.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				A18E149A22568B2400AAC901 /* UIView+Layout.swift */,
 				A196F9B9224CA37800F09319 /* Extension.swift */,
 				A1EE7BC72269CEB700032FCF /* Colors.swift */,
+				A1A8A958227F469C005FEBF2 /* UserDefaultManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				A14375A4226B4FC900479DDF /* SwipingController.swift in Sources */,
 				A115AF8B22520A09005D5779 /* Constants.swift in Sources */,
 				A18E14992256896900AAC901 /* HomePageController.swift in Sources */,
+				A1A8A959227F469C005FEBF2 /* UserDefaultManager.swift in Sources */,
 				A18E14A22256A9C600AAC901 /* ProductCell.swift in Sources */,
 				A196F9BF224CBC4800F09319 /* CartViewController.swift in Sources */,
 				A196F9BA224CA37800F09319 /* Extension.swift in Sources */,
