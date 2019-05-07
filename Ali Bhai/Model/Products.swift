@@ -18,7 +18,17 @@ struct Products : Decodable{
    // let stock_quantity: String
     let stock_status: String
     let images : [ImagesAll]
+    let attributes : AttributesProducts
 }
 struct ImagesAll : Decodable {
     let src : String
+}
+
+struct AttributesProducts : Decodable {
+    let id : Int
+    let name : String
+    let position : Int
+    let visible : Bool
+    let variation : Bool
+    let options : [String] 
 }

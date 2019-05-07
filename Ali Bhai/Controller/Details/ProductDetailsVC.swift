@@ -145,6 +145,7 @@ class ProductDetailsVC: UIViewController {
         collectionViewSlider.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: CGSize(width: collectionViewSlider.frame.width, height: 400))
        // collectionViewSlider.backgroundColor = .red
        
+        //addToCartButton
         view.addSubview(addToCartButton)
         addToCartButton.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 20, bottom: 0, right: 20), size: CGSize(width: 300, height: 50))
         addToCartButton.backgroundColor = #colorLiteral(red: 0.9693114161, green: 0.4762580991, blue: 0.4769517779, alpha: 1)
@@ -153,12 +154,14 @@ class ProductDetailsVC: UIViewController {
         addToCartButton.clipsToBounds = true
         addToCartButton.layer.cornerRadius = 10
         
+        //productTitleLabel
         contentView.addSubview(productTitleLabel)
         productTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         productTitleLabel.anchor(top: collectionViewSlider.bottomAnchor, leading: collectionViewSlider.leadingAnchor, bottom: nil, trailing: collectionViewSlider.trailingAnchor, padding: .init(top: 15, left: 20, bottom: 0, right: 20), size: CGSize(width: productTitleLabel.frame.width, height: productTitleLabel.frame.height))
         productTitleLabel.font = UIFont.boldSystemFont(ofSize: 28)
         productTitleLabel.sizeToFit()
         
+        //productPrice
         contentView.addSubview(productPrice)
         productPrice.translatesAutoresizingMaskIntoConstraints = false
         productPrice.anchor(top: productTitleLabel.bottomAnchor, leading: collectionViewSlider.leadingAnchor, bottom: nil, trailing: collectionViewSlider.trailingAnchor, padding: .init(top: 15, left: 20, bottom: 0, right: 15), size: CGSize(width: productTitleLabel.frame.width, height: productTitleLabel.frame.height))
@@ -166,9 +169,10 @@ class ProductDetailsVC: UIViewController {
         productPrice.textColor = #colorLiteral(red: 0.9693114161, green: 0.4762580991, blue: 0.4769517779, alpha: 1)
         productPrice.sizeToFit()
         
+        //productShortDescrition
         contentView.addSubview(productShortDescrition)
         productShortDescrition.translatesAutoresizingMaskIntoConstraints = false
-        productShortDescrition.anchor(top: productPrice.bottomAnchor, leading: collectionViewSlider.leadingAnchor, bottom: nil, trailing: productPrice.trailingAnchor, padding: .init(top: 15, left: 20, bottom: 0, right: 20),size: CGSize(width: productShortDescrition.frame.width, height: productShortDescrition.frame.height))
+        productShortDescrition.anchor(top: productPrice.bottomAnchor, leading: collectionViewSlider.leadingAnchor, bottom: nil, trailing: productPrice.trailingAnchor, padding: .init(top: 10, left: 20, bottom: 0, right: 20),size: CGSize(width: productShortDescrition.frame.width, height: productShortDescrition.frame.height))
         productShortDescrition.font = UIFont.systemFont(ofSize: 18)
         productShortDescrition.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         productShortDescrition.numberOfLines = 0
