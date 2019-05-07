@@ -100,9 +100,9 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
     }
     
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selected = product[indexPath.item]
-        let detailsControler = ProductDetailsController()
-        detailsControler.productId = selected.id
+      //  let selected = product[indexPath.item]
+        let detailsControler = ProductDetailsVC()
+      //  detailsControler.productId = selected.id
         self.navigationController?.pushViewController(detailsControler, animated: true)
     }
     

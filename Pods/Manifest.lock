@@ -1,34 +1,39 @@
 PODS:
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
+  - Fabric (1.9.0)
   - Kingfisher (5.2.0)
   - Realm (3.13.1):
     - Realm/Headers (= 3.13.1)
   - Realm/Headers (3.13.1)
   - RealmSwift (3.13.1):
     - Realm (= 3.13.1)
-  - RevealingSplashView (0.6.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
+  - Crashlytics
+  - Fabric
   - Kingfisher (~> 5.0)
   - RealmSwift
-  - RevealingSplashView
   - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Crashlytics
+    - Fabric
     - Kingfisher
     - Realm
     - RealmSwift
-    - RevealingSplashView
     - SVProgressHUD
 
 SPEC CHECKSUMS:
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   Kingfisher: 07067cfacf371117330dceb4b4b8f5c4b691ab42
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
-  RevealingSplashView: 40c5a770894459736acdc95655eeba0dd30ce91c
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 80c1a1fe716f9c0a9252298ef933230870526436
+PODFILE CHECKSUM: 61e3ffe07cce4e7ce17a261bbf3244a89dd89213
 
 COCOAPODS: 1.6.1
