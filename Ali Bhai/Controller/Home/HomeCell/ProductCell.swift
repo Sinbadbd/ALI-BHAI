@@ -47,13 +47,13 @@ class ProductCell: UICollectionViewCell {
         productImage.clipsToBounds = true
         
         productTitle.anchor(top: productImage.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 5, left: 10, bottom: 5, right: 0))
-        productPrice.anchor(top: productTitle.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 10, bottom: 5, right: 0))
-        productOldPrice.anchor(top: productPrice.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 5, left: 10, bottom: 5, right: 0))
-        productFavoriteBtn.anchor(top: nil, leading: productOldPrice.trailingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 5, right: 5), size: CGSize(width: 20, height: 20))
-        productFavoriteBtn.backgroundColor = .red
-        productFavoriteBtn.contentMode = .scaleAspectFill
-        productFavoriteBtn.clipsToBounds = true
-        productFavoriteBtn.addTarget(self, action: #selector(handleFavItem), for: .touchUpInside)
+        productPrice.anchor(top: productTitle.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 10, bottom: 5, right: 0), size: CGSize(width: productPrice.frame.width, height: 20))
+        productOldPrice.anchor(top: productPrice.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 5, left: 10, bottom: 5, right: 0), size: CGSize(width: productPrice.frame.width, height: 20))
+//        productFavoriteBtn.anchor(top: nil, leading: productOldPrice.trailingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 5, right: 5), size: CGSize(width: 20, height: 20))
+//        productFavoriteBtn.backgroundColor = .red
+//        productFavoriteBtn.contentMode = .scaleAspectFill
+//        productFavoriteBtn.clipsToBounds = true
+//        productFavoriteBtn.addTarget(self, action: #selector(handleFavItem), for: .touchUpInside)
     }
     
     var products : Products?

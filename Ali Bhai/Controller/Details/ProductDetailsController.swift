@@ -158,7 +158,7 @@ class ProductDetailsController : UIViewController, UICollectionViewDataSource, U
         buyNowButton.translatesAutoresizingMaskIntoConstraints = false
         buyNowButton.setTitle("Buy Now", for: .normal)
         buyNowButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        buyNowButton.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.4745098039, blue: 0.4784313725, alpha: 1)
+        buyNowButton.backgroundColor = #colorLiteral(red: 0.9693114161, green: 0.4762580991, blue: 0.4769517779, alpha: 1)
         buyNowButton.layer.cornerRadius = 6
         buyNowButton.addTarget(self, action: #selector(handleBuyButton), for: .touchUpInside)
         buyNowButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: nil)
