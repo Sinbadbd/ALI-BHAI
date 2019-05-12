@@ -17,14 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Fabric.with([Crashlytics.self])
         
-      //  let splashVC = SplashScreen()
+        let splashVC = SplashScreen()
         
-       let pd = ProductDetailsVC()
-       let nav = UINavigationController(rootViewController: pd)
-        window?.rootViewController = nav
+       //let pd = ProductDetailsVC()
+      // let nav = UINavigationController(rootViewController: pd)
+        window?.rootViewController = splashVC
         
         
-    //   Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleDismissSplash), userInfo: nil, repeats: false)
+       Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleDismissSplash), userInfo: nil, repeats: false)
         
         return true
     }

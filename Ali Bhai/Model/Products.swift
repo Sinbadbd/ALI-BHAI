@@ -18,7 +18,7 @@ struct Products : Decodable{
    // let stock_quantity: String
     let stock_status: String
     let images : [ImagesAll]
-    let attributes : AttributesProducts
+    let attributes : [AttributesProducts]
 }
 struct ImagesAll : Decodable {
     let src : String
@@ -30,5 +30,5 @@ struct AttributesProducts : Decodable {
     let position : Int
     let visible : Bool
     let variation : Bool
-    let options : [String] 
+    let options : [String]
 }

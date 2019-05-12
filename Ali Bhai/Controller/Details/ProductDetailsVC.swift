@@ -31,6 +31,7 @@ import Kingfisher
  }
 
 
+
 class ProductDetailsVC: UIViewController {
     
     var product : Products?
@@ -52,6 +53,14 @@ class ProductDetailsVC: UIViewController {
     let addToCartButton : UIButton = UIButton(type: .system)
     
     let  IMAGE_CELL = "IMAGE_CELL"
+    
+    var productId : Int! {
+        didSet {
+            print("app id", productId)
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScrollView()
@@ -62,34 +71,52 @@ class ProductDetailsVC: UIViewController {
         collectionViewSlider.register(ImageSliderCell.self, forCellWithReuseIdentifier: IMAGE_CELL)
         fetchDetailsApi()
     }
-    
     override func viewWillAppear(_ animated: Bool) {
-        let addBtn = UIBarButtonItem(image: UIImage(named: "heart"), style: .plain, target: self, action: #selector(handleFav))
-        addBtn.tintColor = .white
-        self.navigationItem.rightBarButtonItem = addBtn
+        super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+        self.tabBarController?.tabBar.isHidden = true
     }
-    
+ 
+    var attributes = [AttributesProducts]()
     func fetchDetailsApi(){
-        ApiClient.getProdutsId(id: 73 ) { (response, error) in
+        ApiClient.getProdutsId(id: productId ) { (response, error) in
           //  SVProgressHUD.show()
             self.product = response
             DispatchQueue.main.async {
                 self.view.setNeedsDisplay()
-                
-                
-//                self.strikPrice.text = response?.sale_price
-//                self.orginalPrice.text = response?.price
-//                self.stock_status.text = response?.stock_status
-//                self.fullDescription.text = "\(String(describing: (response?.description)?.stripOutHtml()))"
+ 
                 if let response = response {
                     self.productTitleLabel.text = response.name
                     self.productPrice.text = "BDT \(response.price)"
-                    self.productShortDescrition.text = "\(String(describing: (response.short_description).stripOutHtml()))"
+                    self.productShortDescrition.text = (response.short_description).stripOutHtml()
+ 
+                    let attribute  = response.attributes[0]
+                     print("attribute---\(attribute.options)")
+                    
                     self.productImages = response.images
+                    
+                    var xOffest:CGFloat = 20
+                    
+//                    for attr in attribute.options {
+//
+//                    }
+                    
+                   
+//                    for color in 0..< attributes[0].options {
+//                        let colorButton = UIButton(frame: CGRect(x: xOffest, y: 550, width: 50, height: 50))
+//                        xOffest += 60
+//                        colorButton.backgroundColor = self.hexStringToUIColor( hex: self.colorValus[color])
+//                        colorButton.layer.cornerRadius = colorButton.frame.width / 2
+//                        colorButton.layer.borderWidth = 1
+//                        colorButton.titleLabel?.text = "\(color)"
+//                       // colorButton.addTarget(self, action: #selector(handleColorBtn), for: .touchUpInside)
+//                        self.view.addSubview(colorButton)
+//                       // print("\(index) \(color)")
+//                    }
                 }
                 
               self.collectionViewSlider.reloadData()
@@ -98,7 +125,27 @@ class ProductDetailsVC: UIViewController {
         }
     }
     
-    
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8)  / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
     @objc func handleFav(){
         print("--")
     }
@@ -176,8 +223,7 @@ class ProductDetailsVC: UIViewController {
         productShortDescrition.font = UIFont.systemFont(ofSize: 18)
         productShortDescrition.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         productShortDescrition.numberOfLines = 0
-        productShortDescrition.sizeToFit()
-        
+        productShortDescrition.sizeToFit() 
         
         
     }

@@ -24,20 +24,12 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
         setupViews()
         fetchData()
         apiData()
-        
-       isSplashScreen()
-        
+ 
     }
     override func viewWillAppear(_ animated: Bool) {
        self.tabBarController?.tabBar.isHidden = false
     }
-    
-    
-    func isSplashScreen()-> Bool {
-        return UserDefaults.standard.bool(forKey: "splash")
-    }
-    
-    
+ 
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 12
@@ -100,9 +92,9 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
     }
     
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-      //  let selected = product[indexPath.item]
+         let selected = product[indexPath.item]
         let detailsControler = ProductDetailsVC()
-      //  detailsControler.productId = selected.id
+         detailsControler.productId = selected.id
         self.navigationController?.pushViewController(detailsControler, animated: true)
     }
     
@@ -118,8 +110,8 @@ class HomePageController : UIViewController, UICollectionViewDelegate, UICollect
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PRODUCT_CELL, for: indexPath) as! ProductCell
             let productData = product[indexPath.item]
             cell.productTitle.text = productData.name
-            cell.productPrice.text = productData.price
-            cell.productOldPrice.text = productData.sale_price
+            cell.productPrice.text = "BDT \(productData.price)"
+            cell.productOldPrice.attributedText =  ((productData.sale_price).strikeThrough())
             let url = URL(string: productData.images[0].src)
             cell.productImage.kf.setImage(with: url)
             
