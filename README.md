@@ -6,8 +6,7 @@
     - Introduction screen (DONE)
     - Home page (DONE)
     - Product Details (IN PROGESS)
-    - CART PAGE(UP COMMING)
-    - CHECKOUT PAGE(UP COMMING)
-    - PAYMENT PAGE (UP COMMING)
-    - USER REGISTRATION/ LOGIN (UP COMMING)
-    - 
+    - Cart Page(UP COMMING)
+    - Checkout Page(UP COMMING)
+    - Payment Page (UP COMMING)
+    - User Registration/ Login (UP COMMING)
