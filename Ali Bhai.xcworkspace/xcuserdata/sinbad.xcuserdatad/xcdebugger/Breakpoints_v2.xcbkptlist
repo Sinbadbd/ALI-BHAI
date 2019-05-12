@@ -26,17 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Ali Bhai/Controller/Details/ProductDetailsVC.swift"
-            timestampString = "579343118.198939"
+            timestampString = "579346202.4773639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "154"
-<<<<<<< HEAD
-            endingLineNumber = "154">
-=======
             endingLineNumber = "154"
             landmarkName = "setupScrollView()"
             landmarkType = "7">
->>>>>>> 3a6f73cbb3272af9d132dbf40d11fd7db2ee47e8
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
