@@ -15,7 +15,7 @@ Branch Checkout: **master-ios**
     - User Registration/ Login (UP COMMING)
 
 ------------------------------------------------------------------------------------
-<img align="left" src="image/s1.png" width="250px"/> 
+<img align="left" src="image/s1.png" width="220px"/> 
 <img align="left" src="image/s2.png" width="250px"/> 
 <img align="left" src="image/s3.png" width="250"/> 
 <img align="left" src="image/s4.png" width="250px"/> 
