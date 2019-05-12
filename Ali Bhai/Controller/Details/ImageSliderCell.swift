@@ -9,13 +9,13 @@
 import UIKit
 class ImageSliderCell : UICollectionViewCell {
     
-    let imageV:UIImageView = UIImageView()
+    var imageV:UIImageView = UIImageView()
     
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        imageV.frame = CGRect(x: 0, y: 0, width: 250, height: 200)
+       // imageV.frame = CGRect(x: 0, y: 0, width: 250, height: 200)
         addSubview(imageV)
         imageV.image = #imageLiteral(resourceName: "grocery")
         imageV.layer.cornerRadius = 12
@@ -23,6 +23,7 @@ class ImageSliderCell : UICollectionViewCell {
         imageV.contentMode = .scaleAspectFill
         imageV.layer.borderColor = UIColor.lightGray.cgColor
         imageV.layer.borderWidth = 1
+        imageV.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
         
     }
     
