@@ -2,6 +2,13 @@
 
 Branch Checkout: **master-ios**
 
+### How to use?
+
+  `pod install`
+  
+  `Xcode > Run`
+
+
 ### E-commerce APP based on  <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/">woocommerce API</a>
 ---------------------------------------------------------------
 ### PAGES
