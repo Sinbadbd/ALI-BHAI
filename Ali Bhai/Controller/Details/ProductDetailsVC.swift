@@ -83,7 +83,7 @@ class ProductDetailsVC: UIViewController {
  
     var attributes = [AttributesProducts]()
     func fetchDetailsApi(){
-        ApiClient.getProdutsId(id: productId ) { (response, error) in
+        ApiClient.getProdutsId(id: 74 ) { (response, error) in
           //  SVProgressHUD.show()
             self.product = response
             DispatchQueue.main.async {

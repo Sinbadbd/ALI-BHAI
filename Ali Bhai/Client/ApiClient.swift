@@ -14,11 +14,22 @@ class ApiClient {
     
     enum EndPoints {
         static let BASE = "https://devsloop.com/wp-json/wc/v3"
+        static let CART_BASE_URL = "https://devsloop.com/wp-json/wc/v2/"
         static let apiKeyParam = key
         case getProducts
         case getProductId(Int)
         case getCategory
         case getCategoryId(Int)
+        
+        //cart information: @coCart
+        case getCart
+        case clearCart
+        case getCartCountItem
+        case getCartTotals
+        case cartTotalCalculate
+        case addToCart
+        case cartItemUpdate
+        case cartItemRemove
         
         var stringValue : String {
             switch self {
@@ -26,6 +37,18 @@ class ApiClient {
             case .getProductId (let id): return EndPoints.BASE + "/products/\(id)" +  EndPoints.apiKeyParam
             case .getCategory: return EndPoints.BASE + "/products/categories" + EndPoints.apiKeyParam
             case .getCategoryId (let id): return EndPoints.BASE + "/products/categories/(id)" + EndPoints.apiKeyParam
+         
+            
+            // cart endpoints: @coCart
+            case .getCart: return EndPoints.CART_BASE_URL + "cart" + EndPoints.apiKeyParam
+            case .getCartCountItem: return EndPoints.CART_BASE_URL + "cart/count-items" + EndPoints.apiKeyParam
+            case .cartTotalCalculate: return EndPoints.CART_BASE_URL + "cart/calculate" + EndPoints.apiKeyParam
+            case .getCartTotals: return EndPoints.CART_BASE_URL + "cart/totals" + EndPoints.apiKeyParam
+            case .addToCart: return EndPoints.CART_BASE_URL + "cart/add" + EndPoints.apiKeyParam
+            case .cartItemUpdate: return EndPoints.CART_BASE_URL + "cart/cart-item" + EndPoints.apiKeyParam
+            case .cartItemRemove: return EndPoints.CART_BASE_URL + "cart/cart-item" + EndPoints.apiKeyParam
+            case .clearCart: return EndPoints.CART_BASE_URL + "cart/clear" + EndPoints.apiKeyParam
+            
             }
         }
         var url : URL{
