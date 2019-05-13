@@ -1,6 +1,7 @@
 # ALI-BHAI
+### E-commerce APP based on  <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/">woocommerce API</a>
 
-Branch Checkout: **master-ios**
+------------------------------------------------------------------------------------ 
 
 ### How to use?
 
@@ -9,7 +10,7 @@ Branch Checkout: **master-ios**
   `Xcode > Run`
 
 
-### E-commerce APP based on  <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/">woocommerce API</a>
+
 ---------------------------------------------------------------
 ### PAGES
     - Splash screen (DONE)
@@ -21,7 +22,6 @@ Branch Checkout: **master-ios**
     - Payment Page (UP COMMING)
     - User Registration/ Login (UP COMMING)
 
-------------------------------------------------------------------------------------
 <img align="left" src="image/s1.png" width="220px"/> 
 <img align="left" src="image/s2.png" width="250px"/> 
 <img align="left" src="image/s3.png" width="250"/> 
