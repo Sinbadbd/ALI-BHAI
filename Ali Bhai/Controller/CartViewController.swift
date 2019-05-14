@@ -24,8 +24,8 @@ class CartViewController: UIViewController {
         view.addSubview(cartTabelView)
         
         
-        cartTabelView.estimatedRowHeight = 200
-        cartTabelView.rowHeight = UITableView.automaticDimension
+//        cartTabelView.estimatedRowHeight = 500
+//        cartTabelView.rowHeight = UITableView.automaticDimension
         
         cartTabelView.delegate = self
         cartTabelView.dataSource = self
@@ -51,10 +51,11 @@ extension CartViewController : UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = .none
         return cell
     }
+   
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 250
-//    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 250
+    }
 //
 //    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return UITableView.automaticDimension
