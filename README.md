@@ -27,4 +27,4 @@
 <img align="left" src="image/s3.png" width="250"/> 
 <img align="left" src="image/s4.png" width="250px"/> 
 <img align="left" src="image/s5.png" width="250px"/>
-
+<img align="left" src="image/s6.png" width="250px"/>
