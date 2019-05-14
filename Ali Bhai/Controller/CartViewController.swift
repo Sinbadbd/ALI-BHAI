@@ -10,21 +10,37 @@ import UIKit
 
 class CartViewController: UIViewController {
 
+    var list = ["A", "B","C", "D"]
+    let CART_ID = "CART_ID"
+    let cartTabelView : UITableView = {
+        let table = UITableView()
+        table.translatesAutoresizingMaskIntoConstraints = false
+        return table
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.addSubview(cartTabelView)
+        
+        cartTabelView.delegate = self
+        cartTabelView.dataSource = self
+        cartTabelView.register(CartTableViewCell.self, forCellReuseIdentifier: CART_ID)
+        cartTabelView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
+        
+    }
+}
+
+extension CartViewController : UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return list.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = cartTabelView.dequeueReusableCell(withIdentifier: CART_ID, for: indexPath) as! CartTableViewCell
+        cell.textLabel?.text = list[indexPath.item]
+        return cell
     }
-    */
-
+    
+    
 }

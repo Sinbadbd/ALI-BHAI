@@ -14,6 +14,7 @@
 		A108D050228A9342003C7B56 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A108D04F228A9342003C7B56 /* CategoryCell.swift */; };
 		A108D052228A937D003C7B56 /* HomeImageSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A108D051228A937D003C7B56 /* HomeImageSliderCell.swift */; };
 		A108D054228A93A5003C7B56 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A108D053228A93A5003C7B56 /* ProductCell.swift */; };
+		A108D057228A9A4A003C7B56 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A108D056228A9A4A003C7B56 /* CartTableViewCell.swift */; };
 		A115AF8B22520A09005D5779 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A115AF8A22520A09005D5779 /* Constants.swift */; };
 		A117B008226AEC210086BA5D /* IntroductionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A117B007226AEC210086BA5D /* IntroductionVC.swift */; };
 		A14375A4226B4FC900479DDF /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14375A3226B4FC900479DDF /* SwipingController.swift */; };
@@ -51,6 +52,7 @@
 		A108D04F228A9342003C7B56 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		A108D051228A937D003C7B56 /* HomeImageSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeImageSliderCell.swift; sourceTree = "<group>"; };
 		A108D053228A93A5003C7B56 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		A108D056228A9A4A003C7B56 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		A115AF8A22520A09005D5779 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A117B007226AEC210086BA5D /* IntroductionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionVC.swift; sourceTree = "<group>"; };
 		A14375A3226B4FC900479DDF /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		A108D04A228A929F003C7B56 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A108D055228A9A19003C7B56 /* Cart */,
 				A108D04E228A9322003C7B56 /* HomeCell */,
 				A108D04B228A92D8003C7B56 /* Details */,
 			);
@@ -154,6 +157,14 @@
 				A108D053228A93A5003C7B56 /* ProductCell.swift */,
 			);
 			path = HomeCell;
+			sourceTree = "<group>";
+		};
+		A108D055228A9A19003C7B56 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				A108D056228A9A4A003C7B56 /* CartTableViewCell.swift */,
+			);
+			path = Cart;
 			sourceTree = "<group>";
 		};
 		A115AF882251DF65005D5779 /* Details */ = {
@@ -436,6 +447,7 @@
 				A108D052228A937D003C7B56 /* HomeImageSliderCell.swift in Sources */,
 				A108D050228A9342003C7B56 /* CategoryCell.swift in Sources */,
 				A196F9BA224CA37800F09319 /* Extension.swift in Sources */,
+				A108D057228A9A4A003C7B56 /* CartTableViewCell.swift in Sources */,
 				A14375A7226B5A9500479DDF /* IntroductionCell.swift in Sources */,
 				A1BD275F22578DF000B54858 /* Category.swift in Sources */,
 			);
