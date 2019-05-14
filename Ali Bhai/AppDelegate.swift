@@ -21,10 +21,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
        //let pd = ProductDetailsVC()
       // let nav = UINavigationController(rootViewController: pd)
-        window?.rootViewController = splashVC
+        
+        let cart = CartViewController()
+        let nav = UINavigationController(rootViewController: cart)
+        window?.rootViewController = nav
         
         
-       Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleDismissSplash), userInfo: nil, repeats: false)
+     //  Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleDismissSplash), userInfo: nil, repeats: false)
         
         return true
     }
