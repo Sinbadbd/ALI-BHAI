@@ -40,7 +40,7 @@ class HomeImageSliderCell: UICollectionViewCell, UICollectionViewDataSource, UIC
                 self.productImages = response[0].images
             }
             
-            DispatchQueue.main.async { 
+            DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
         }

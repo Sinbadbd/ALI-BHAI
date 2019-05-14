@@ -5,7 +5,6 @@
 //  Created by sinbad on 4/1/19.
 //  Copyright © 2019 sinbad. All rights reserved.
 //
-
 import UIKit
 class ImageSliderCell : UICollectionViewCell {
     
@@ -15,7 +14,7 @@ class ImageSliderCell : UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-       // imageV.frame = CGRect(x: 0, y: 0, width: 250, height: 200)
+        // imageV.frame = CGRect(x: 0, y: 0, width: 250, height: 200)
         addSubview(imageV)
         imageV.image = #imageLiteral(resourceName: "grocery")
         imageV.layer.cornerRadius = 12

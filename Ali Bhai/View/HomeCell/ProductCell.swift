@@ -42,18 +42,18 @@ class ProductCell: UICollectionViewCell {
         addSubview(productFavoriteBtn)
         backgroundColor = .white
         productImage.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 0, left: 0, bottom: 5, right: 5), size: CGSize(width: 191, height: 150))
-       // productImage.backgroundColor = .blue
+        // productImage.backgroundColor = .blue
         productImage.contentMode = .scaleAspectFill
         productImage.clipsToBounds = true
         
         productTitle.anchor(top: productImage.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 5, left: 10, bottom: 5, right: 0))
         productPrice.anchor(top: productTitle.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 10, left: 10, bottom: 5, right: 0), size: CGSize(width: productPrice.frame.width, height: 20))
         productOldPrice.anchor(top: productPrice.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, padding: .init(top: 5, left: 10, bottom: 5, right: 0), size: CGSize(width: productPrice.frame.width, height: 20))
-//        productFavoriteBtn.anchor(top: nil, leading: productOldPrice.trailingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 5, right: 5), size: CGSize(width: 20, height: 20))
-//        productFavoriteBtn.backgroundColor = .red
-//        productFavoriteBtn.contentMode = .scaleAspectFill
-//        productFavoriteBtn.clipsToBounds = true
-//        productFavoriteBtn.addTarget(self, action: #selector(handleFavItem), for: .touchUpInside)
+        //        productFavoriteBtn.anchor(top: nil, leading: productOldPrice.trailingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 5, right: 5), size: CGSize(width: 20, height: 20))
+        //        productFavoriteBtn.backgroundColor = .red
+        //        productFavoriteBtn.contentMode = .scaleAspectFill
+        //        productFavoriteBtn.clipsToBounds = true
+        //        productFavoriteBtn.addTarget(self, action: #selector(handleFavItem), for: .touchUpInside)
     }
     
     var products : Products?

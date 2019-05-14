@@ -24,8 +24,8 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
     
     
     var category = [Category]()
-
-
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -33,11 +33,11 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
     }
     
     func apiData (){
-       // print("----------")
+        // print("----------")
         ApiClient.getAllCategory { (response, error) in
             if let response = response {
                 self.category = response
-               // print(response)
+                // print(response)
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
@@ -48,7 +48,7 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
     let CELL = "CELL"
     
     func setupUI(){
-         collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(CategoryContentCell.self, forCellWithReuseIdentifier: CELL)
@@ -84,10 +84,10 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
         let apiData   = category[indexPath.item]
         cell.categoryTitle.text = apiData.name
         let url = URL(string: apiData.image.src)
-       // print(url)
+        // print(url)
         cell.imageCat.kf.setImage(with: url)
         //cell.backgroundColor = selectedIndex == indexPath.item ? UIColor.green : UIColor.red
-
+        
         cell.layer.cornerRadius = 10
         cell.layer.shadowColor = UIColor.gray.cgColor
         cell.layer.shadowOffset = CGSize(width: 0, height: 1.0)
@@ -114,7 +114,7 @@ class CategoryCell: UICollectionViewCell, UICollectionViewDelegate, UICollection
             addSubview(categoryTitle)
             categoryTitle.anchor(top: imageCat.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: nil, padding: .init(top: 10, left: 5, bottom: 0, right: 0))
             categoryTitle.numberOfLines = 1
-         
+            
         }
         required init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
