@@ -240,13 +240,8 @@ class ProductDetailsVC: UIViewController {
     @objc func handleAddToCart(){
     
         print("before----add cart")
-        ApiClient.addToCart(productID: productId) { (success, error) in
-            if success {
-                self.showToast(message: "Product successfully added to cart. Click here to view cart.")
-                print("after----add cart")
-                print(self.productId)
-            }
-         
+        ApiClient.addToCart(productID: productId) { (response, error) in
+             self.showToast(message: "Product successfully added to cart.")         
         }
     }
 }
