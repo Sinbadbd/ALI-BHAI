@@ -241,7 +241,8 @@ class ProductDetailsVC: UIViewController {
     
         print("before----add cart")
         ApiClient.addToCart(productID: productId) { (response, error) in
-             self.showToast(message: "Product successfully added to cart.")         
+             self.showToast(message: "Product successfully added to cart.")
         }
+        ApiClient.getCartCount()
     }
 }

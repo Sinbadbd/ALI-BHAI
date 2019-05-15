@@ -13,9 +13,11 @@ class CartViewController: UIViewController {
     
     let CART_ID = "CART_ID"
     
+    //var getAllCartItem : CartResponse
+   // var getCartArray = [CartResponse]()
     
     
-    
+   
     let cartTabelView : UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -26,6 +28,7 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
 
         view.addSubview(cartTabelView)
+        
         
         
 //        cartTabelView.estimatedRowHeight = 500
@@ -46,12 +49,15 @@ class CartViewController: UIViewController {
 
 extension CartViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = cartTabelView.dequeueReusableCell(withIdentifier: CART_ID, for: indexPath) as! CartTableViewCell
        // cell.textLabel?.text = list[indexPath.item]
+       // getCartArray = [indexPath.item] as? Any
+        
+       // cell.cartProductTitle.text = getCartArray[indexPath.item].product_name
         cell.selectionStyle = .none
         return cell
     }

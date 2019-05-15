@@ -164,4 +164,13 @@ class ApiClient {
             }
         }
     }
+    class func getCartCount(){
+        let task = URLSession.shared.dataTask(with: EndPoints.getCartCountItem.url) { (data, response, error) in
+            if let response = response {
+                print(response)
+            }
+        }
+        task.resume()
+    }
+    
 }
