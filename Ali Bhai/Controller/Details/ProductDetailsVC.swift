@@ -83,7 +83,7 @@ class ProductDetailsVC: UIViewController {
  
     var attributes = [AttributesProducts]()
     func fetchDetailsApi(){
-        ApiClient.getProdutsId(id: 74 ) { (response, error) in
+        ApiClient.getProdutsId(id: productId ) { (response, error) in
           //  SVProgressHUD.show()
             self.product = response
             DispatchQueue.main.async {
@@ -200,6 +200,7 @@ class ProductDetailsVC: UIViewController {
         addToCartButton.setTitleColor(UIColor.white, for: .normal)
         addToCartButton.clipsToBounds = true
         addToCartButton.layer.cornerRadius = 10
+        addToCartButton.addTarget(self, action: #selector(handleAddToCart), for: .touchUpInside)
         
         //productTitleLabel
         contentView.addSubview(productTitleLabel)
@@ -236,4 +237,16 @@ class ProductDetailsVC: UIViewController {
         return collectionView
     }()
     
+    @objc func handleAddToCart(){
+    
+        print("before----add cart")
+        ApiClient.addToCart(productID: productId) { (success, error) in
+            if success {
+                self.showToast(message: "Product successfully added to cart. Click here to view cart.")
+                print("after----add cart")
+                print(self.productId)
+            }
+         
+        }
+    }
 }

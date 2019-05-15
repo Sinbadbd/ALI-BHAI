@@ -151,8 +151,12 @@ class ApiClient {
     }
     
     // @POST: ADD TO CART
-    class func addToCart(completion: @escaping(Cart?, Error?)-> Void) {
-        
+    class func addToCart(productID: Int, completion: @escaping(Bool, Error?)-> Void) {
+        let body = CartResquest(product_id : productID)
+        taskForPOSTRequest(url: EndPoints.addToCart.url, responseType: CartResponse.self, body: body) { (response, error) in
+            if let response = response {
+               print(response.quantity)
+            }
+        }
     }
-    
 }
