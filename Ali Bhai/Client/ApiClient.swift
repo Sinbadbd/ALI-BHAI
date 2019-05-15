@@ -80,8 +80,38 @@ class ApiClient {
         task.resume()
     }
     
+    // @POST: REQUEST
+    class func taskForPOSTRequest<RequestType: Encodable, ResponseType: Decodable>(url: URL, responseType: ResponseType.Type, body: RequestType, completion: @escaping(ResponseType?, Error?) -> Void){
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = try! JSONEncoder().encode(body)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let requestObject = try decoder.decode(ResponseType.self, from: data)
+                DispatchQueue.main.async {
+                    completion(requestObject, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            }
+        }
+        task.resume()
+    }
     
     
+    // @GET: ALL PRODUCT
     class func getAllProducts (completion: @escaping([Products]?,Error?)->Void) {
         
         taskForGetRequest(url: ApiClient.EndPoints.getProducts.url, response: [Products].self) { (response, error) in
@@ -94,7 +124,7 @@ class ApiClient {
             }
         }
     }
-    
+    // @GET: ID BY PRODUCT
     class func getProdutsId (id : Int, completion: @escaping(Products?,Error?)->Void) {
         taskForGetRequest(url: ApiClient.EndPoints.getProductId(id).url, response: Products.self) { (response, error) in
             if let response = response {
@@ -106,7 +136,7 @@ class ApiClient {
         }
     }
     
-    
+    // @GET: ALL CATEGORY
     class func getAllCategory(completion: @escaping([Category]?, Error?)->Void){
         print(ApiClient.EndPoints.getCategory.url)
         taskForGetRequest(url: ApiClient.EndPoints.getCategory.url, response: [Category].self) { (response, error) in
@@ -118,6 +148,11 @@ class ApiClient {
                 print(error?.localizedDescription ?? "")
             }
         }
+    }
+    
+    // @POST: ADD TO CART
+    class func addToCart(completion: @escaping(Cart?, Error?)-> Void) {
+        
     }
     
 }

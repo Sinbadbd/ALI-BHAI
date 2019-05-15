@@ -24,6 +24,11 @@ class BaseTabController : UITabBarController {
             createNavController(viewController: MoreViewController(), title: "More", imageView: "menu")
         ]
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.tabBar.items![1].badgeValue = "7"
+    }
  
 }
 

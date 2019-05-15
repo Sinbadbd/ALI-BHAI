@@ -19,32 +19,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let splashVC = SplashScreen()
         
-       //let pd = ProductDetailsVC()
-      // let nav = UINavigationController(rootViewController: pd)
+      //  let pd = ProductDetailsVC()
+      //let nav = UINavigationController(rootViewController: pd)
         
-        let cart = CartViewController()
-        let nav = UINavigationController(rootViewController: cart)
-        window?.rootViewController = nav
+//        let cart = CartViewController()
+//        let nav = UINavigationController(rootViewController: cart)
+        window?.rootViewController = splashVC
         
         
-     //  Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleDismissSplash), userInfo: nil, repeats: false)
+     Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(handleDismissSplash), userInfo: nil, repeats: false)
         
         return true
     }
     
     @objc func handleDismissSplash(){
-//        let mainVC = BaseTabController()
-//        
-//        
-//        let introVC = IntroductionVC()
-//        window?.rootViewController = introVC
-//        window?.makeKeyAndVisible()
+        let mainVC = BaseTabController()
         
         
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        let swipingController = SwipingController(collectionViewLayout: layout)
-        window?.rootViewController = swipingController
+        let introVC = IntroductionVC()
+        window?.rootViewController = mainVC
+        window?.makeKeyAndVisible()
+        
+        
+//        let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = .horizontal
+//        let swipingController = SwipingController(collectionViewLayout: layout)
+//        window?.rootViewController = swipingController
     }
     
     func applicationWillResignActive(_ application: UIApplication) {

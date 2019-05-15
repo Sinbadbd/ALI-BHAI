@@ -10,8 +10,12 @@ import UIKit
 
 class CartViewController: UIViewController {
 
-    var list = ["A", "B","C", "D"]
+    
     let CART_ID = "CART_ID"
+    
+    
+    
+    
     let cartTabelView : UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
